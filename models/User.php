@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use yii;
 use yii\web\IdentityInterface;
 
 /**
@@ -85,9 +86,14 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return User::find()->where(['name' => $username])->one();
     }
 
+    public function setPassword($password)
+    {
+        $this->password = Yii::$app->security->generatePasswordHash($password);
+    }
+
     public function validatePassword($password)
     {
-        return ($this->password == $password) ? true : false;
+        return Yii::$app->security->validatePassword($password, $this->password);
     }
 
     public function create()

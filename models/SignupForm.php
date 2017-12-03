@@ -4,6 +4,7 @@ namespace app\models;
 
 use yii\base\Model;
 
+
 class SignupForm extends Model
 {
     public $name;
@@ -23,8 +24,11 @@ class SignupForm extends Model
     public function signup()
     {
         if ($this->validate()) {
+
             $user = new User();
             $user->attributes = $this->attributes;
+            $user->setPassword($user->password);
+
             return $user->create();
         }
     }
