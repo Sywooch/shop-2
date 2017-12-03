@@ -6,6 +6,17 @@
     <br>
 </p>
 
+START
+1. создать таблицу shop
+2. склонировать проект в localhost/ваш_домен
+3. установить точкой входа проекта путь localhost/ваш_домен/web/
+4. выполнить composer install
+5. выполнить миграции php yii migrate
+6. зарегистрироваться на сайте
+7. вручную поправить в таблице user у нового пользовтеля поле isAdmin на значение 1
+8. вход в админ. панель localhost/ваш_домен/admin
+
+
 Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 rapidly creating small projects.
 
@@ -58,7 +69,7 @@ Now you should be able to access the application through the following URL, assu
 directly under the Web root.
 
 ~~~
-http://localhost/basic/web/
+http://localhost/web/
 ~~~
 
 ### Install from an Archive File
@@ -92,9 +103,9 @@ Edit the file `config/db.php` with real data, for example:
 ```php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    'dsn' => 'mysql:host=localhost;dbname=shop',
     'username' => 'root',
-    'password' => '1234',
+    'password' => '',
     'charset' => 'utf8',
 ];
 ```
