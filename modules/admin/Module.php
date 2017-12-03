@@ -37,7 +37,7 @@ class Module extends \yii\base\Module
                         'matchCallback' =>  function($rule, $action)
                         {
                             if (Yii::$app->user->isGuest) {
-                                return false;
+                                return Yii::$app->controller->redirect(['/auth/login']);
                             }
                             return Yii::$app->user->identity->isAdmin;
                         }

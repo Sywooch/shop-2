@@ -1,5 +1,11 @@
 <?php
 use yii\helpers\Html;
+use app\widgets\Alert;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use yii\helpers\Url;
+use app\assets\AppAsset;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -19,6 +25,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 	<?= Html::csrfMetaTags() ?>
 	<title><?= Html::encode($this->title) ?></title>
 	<?php $this->head() ?>
+	<style>.content{overflow: auto}</style>
 </head>
 <body class="hold-transition skin-yellow-light sidebar-mini">
 <?php $this->beginBody() ?>

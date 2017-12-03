@@ -7,7 +7,6 @@ use yii;
 use yii\web\Controller;
 use app\models\LoginForm;
 use app\models\SignupForm;
-use app\models\User;
 
 class AuthController extends Controller
 {

@@ -42,7 +42,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['isAdmin'], 'integer'],
+            [['id', 'isAdmin', 'created_at', 'updated_at'], 'integer'],
             [['name', 'email', 'password', 'photo'], 'string', 'max' => 255],
         ];
     }
@@ -54,38 +54,35 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Имя',
             'email' => 'Email',
-            'password' => 'Password',
-            'isAdmin' => 'Is Admin',
-            'photo' => 'Photo',
+            'password' => 'Пароль',
+            'isAdmin' => 'Роль',
+            'photo' => 'Аватар',
+            'created_at' => 'Создан',
+            'updated_at' => 'Изменен'
         ];
     }
-
 
     public static function findIdentity($id)
     {
         return User::findOne($id);
     }
 
-
     public static function findIdentityByAccessToken($token, $type = null)
     {
         // TODO: Implement findIdentityByAccessToken() method.
     }
-
 
     public function getId()
     {
         return $this->id;
     }
 
-
     public function getAuthKey()
     {
         // TODO: Implement getAuthKey() method.
     }
-
 
     public function validateAuthKey($authKey)
     {

@@ -4,10 +4,6 @@ namespace app\assets;
 use yii\base\Exception;
 use yii\web\AssetBundle as BaseAdminLteAsset;
 
-/**
- * AdminLte AssetBundle
- * @since 0.1
- */
 class AdminLteAsset extends BaseAdminLteAsset
 {
     public $sourcePath = '@app/vendor/almasaeed2010/adminlte/dist';
