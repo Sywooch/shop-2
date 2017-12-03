@@ -16,8 +16,12 @@ class SignupForm extends Model
         return [
             [['name', 'email', 'password'], 'required'],
             [['name'], 'string'],
+            ['name', 'string', 'min' => 2, 'max' => 255],
             [['email'], 'email'],
-            [['email'], 'unique', 'targetClass' => 'app\models\User', 'targetAttribute' => 'email']
+            ['email', 'string', 'max' => 255],
+            [['email'], 'unique', 'targetClass' => 'app\models\User', 'targetAttribute' => 'email'],
+            ['password', 'required'],
+            ['password', 'string', 'min' => 6],
         ];
     }
 

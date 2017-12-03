@@ -12,14 +12,22 @@ class m171202_205810_create_user_table extends Migration
      */
     public function safeUp()
     {
+        $tableOptions = null;
+
+        if ($this->db->driverName === 'mysql') {
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+        }
+
         $this->createTable('user', [
             'id' => $this->primaryKey(),
-            'name'=>$this->string(),
+            'name'=>$this->string()->notNull()->unique(),
             'email'=>$this->string()->defaultValue(null),
-            'password'=>$this->string(),
+            'password'=>$this->string()->notNull(),
             'isAdmin'=>$this->integer()->defaultValue(0),
-            'photo'=>$this->string()->defaultValue(null)
-        ]);
+            'photo'=>$this->string()->defaultValue(null),
+            'created_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->notNull(),
+        ], $tableOptions);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace app\models;
 
 use yii;
 use yii\web\IdentityInterface;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "user".
@@ -23,6 +24,16 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public static function tableName()
     {
         return 'user';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
     }
 
     /**
