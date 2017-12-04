@@ -18,17 +18,22 @@ class AuthController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            $this->isAdmin() ?  $this->redirect(['/admin']) : $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $this->isAdmin() ?  $this->redirect(['/admin']) : $this->goBack();
         }
 
         return $this->render('/site/login', [
             'model' => $model,
         ]);
+    }
+
+    public function isAdmin()
+    {
+        return Yii::$app->user->identity->isAdmin;
     }
 
     /**
