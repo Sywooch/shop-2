@@ -7,7 +7,7 @@ use yii\web\IdentityInterface;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the model class for table "user".
+ * Это класс модели для таблицы "user".
  *
  * @property int $id
  * @property string $name
@@ -15,6 +15,8 @@ use yii\behaviors\TimestampBehavior;
  * @property string $password
  * @property int $isAdmin
  * @property string $photo
+ * @property int $created_at
+ * @property int $updated_at
  */
 class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
@@ -44,6 +46,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             [['id', 'isAdmin', 'created_at', 'updated_at'], 'integer'],
             [['name', 'email', 'password', 'photo'], 'string', 'max' => 255],
+            [['name', 'email',], 'required'],
+            ['name', 'string', 'min' => 2],
+            ['email', 'email'],
+            ['password', 'required'],
+            ['password', 'string', 'min' => 6],
         ];
     }
 
@@ -54,7 +61,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'name' => 'Имя',
+            'name' => 'Логин',
             'email' => 'Email',
             'password' => 'Пароль',
             'isAdmin' => 'Роль',
@@ -99,6 +106,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         $this->password = Yii::$app->security->generatePasswordHash($password);
     }
 
+    public function getPassword($id)
+    {
+        return User::findOne($id)->password;
+    }
+
     public function validatePassword($password)
     {
         return Yii::$app->security->validatePassword($password, $this->password);
@@ -107,5 +119,23 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function create()
     {
         return $this->save(false);
+    }
+
+    public function saveImage($filename)
+    {
+        $this->photo = $filename;
+
+        return $this->save(false);
+    }
+
+    public function getImage()
+    {
+        return ($this->photo) ? '/uploads/' . $this->photo : '/no-image.png';
+    }
+
+    public function deleteImage()
+    {
+        $imageUploadModel = new ImageUpload();
+        $imageUploadModel->deleteCurrentImage($this->photo);
     }
 }

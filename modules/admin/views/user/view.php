@@ -13,8 +13,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="user-view">
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -36,7 +36,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     return ($data->isAdmin > 0)?'Админ':'Юзер';
                 },
             ],
-            'photo',
+            [
+                'attribute' => 'photo',
+                'format' => 'raw',
+                'label' => 'Аватар',
+                'value' => function($data) {
+                    return Html::img($data->getImage(), ['width'=>100, 'style'=>""]);
+                }
+            ],
             [
                 'attribute' => 'created_at',
                 'format' =>  ['date', 'HH:mm dd.MM.YYYY'],

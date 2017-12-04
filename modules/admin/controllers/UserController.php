@@ -5,12 +5,15 @@ namespace app\modules\admin\controllers;
 use Yii;
 use app\models\User;
 use app\models\UserSearch;
+use app\models\ImageUpload;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+
 
 /**
- * UserController implements the CRUD actions for User model.
+ * UserController реализует CRUD действия для модели User
  */
 class UserController extends Controller
 {
@@ -30,16 +33,6 @@ class UserController extends Controller
 
     }
 
-//    public function beforeAction($action)
-//    {
-//        if (in_array($action->id, ['index'])) {
-//            $this->enableCsrfValidation = false;
-//        }
-//
-//        return parent::beforeAction($action);
-//    }
-
-
     public function actionIndex()
     {
         $searchModel = new UserSearch();
@@ -51,7 +44,6 @@ class UserController extends Controller
         ]);
     }
 
-
     public function actionView($id)
     {
         return $this->render('view', [
@@ -59,34 +51,58 @@ class UserController extends Controller
         ]);
     }
 
-
     public function actionCreate()
     {
-        $model = new User();
+        $imageUpload = new ImageUpload();
+        $user = new User();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (Yii::$app->request->isPost) {
+
+            $post = Yii::$app->request->post();
+            $post['User']['password'] = Yii::$app->security->generatePasswordHash($post['User']['password']);
+
+            if($file = UploadedFile::getInstance($imageUpload, 'image')){
+                $user->saveImage($imageUpload->uploadFile($file, $user->photo));
+            }
+
+            if ($user->load($post) && $user->create()) {
+                return $this->redirect(['view', 'id' => $user->id]);
+            }
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $user,
+            'imageUpload' => $imageUpload
         ]);
     }
-
 
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $imageUpload = new ImageUpload();
+        $user = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (Yii::$app->request->isPost) {
+
+            $post = Yii::$app->request->post();
+
+            if ($post['User']['password'] != $user->getPassword($id)) {
+                $post['User']['password'] = Yii::$app->security->generatePasswordHash($post['User']['password']);
+            }
+
+            if($file = UploadedFile::getInstance($imageUpload, 'image')){
+                $user->saveImage($imageUpload->uploadFile($file, $user->photo));
+            }
+
+            if ($user->load($post) && $user->save()) {
+                return $this->redirect(['view', 'id' => $user->id]);
+            }
         }
 
         return $this->render('update', [
-            'model' => $model,
+            'model' => $user,
+            'imageUpload' => $imageUpload,
         ]);
     }
-
 
     public function actionDelete($id)
     {
@@ -95,13 +111,12 @@ class UserController extends Controller
         return $this->redirect(['index']);
     }
 
-
     protected function findModel($id)
     {
         if (($model = User::findOne($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException('Запрашиваемая страница не существует.');
     }
 }

@@ -16,17 +16,20 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'password')->passwordInput([
+		'minlength' => true,
+		'maxlength' => true,
+	])->hint('При изменении данного поля, старый пароль будет изменен.') ?>
 
     <?= $form->field($model, 'isAdmin')->dropdownList([
         0 => 'Юзер',
         1 => 'Админ',
     ]) ?>
 
-    <?= $form->field($model, 'photo')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($imageUpload, 'image')->fileInput(['maxlength' => false,])->label('Аватар') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
