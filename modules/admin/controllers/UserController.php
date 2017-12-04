@@ -61,11 +61,12 @@ class UserController extends Controller
             $post = Yii::$app->request->post();
             $post['User']['password'] = Yii::$app->security->generatePasswordHash($post['User']['password']);
 
-            if($file = UploadedFile::getInstance($imageUpload, 'image')){
-                $user->saveImage($imageUpload->uploadFile($file, $user->photo));
-            }
+            if ($user->load($post) && $user->save()) {
 
-            if ($user->load($post) && $user->create()) {
+                if($file = UploadedFile::getInstance($imageUpload, 'image')){
+                    $user->saveImage($imageUpload->uploadFile($file, $user->photo));
+                }
+
                 return $this->redirect(['view', 'id' => $user->id]);
             }
         }

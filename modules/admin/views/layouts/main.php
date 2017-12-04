@@ -25,7 +25,16 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 	<?= Html::csrfMetaTags() ?>
 	<title><?= Html::encode($this->title) ?></title>
 	<?php $this->head() ?>
-	<style>.content{overflow: auto}</style>
+	<style>
+		.content {overflow: auto}
+		.user-image {
+			width: auto!important;
+			border-radius: 0!important;
+			height: 30px!important;
+			margin-right: 10px!important;
+			margin-top: -5px!important;
+		}
+	</style>
 </head>
 <body class="hold-transition skin-yellow-light sidebar-mini">
 <?php $this->beginBody() ?>
@@ -44,7 +53,10 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 	<?= $this->render(
 		'content.php',
-		['content' => $content, 'directoryAsset' => $directoryAsset]
+		[
+			'content' => $content,
+			'directoryAsset' => $directoryAsset
+		]
 	) ?>
 
 </div>

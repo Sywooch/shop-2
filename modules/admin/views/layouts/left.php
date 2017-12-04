@@ -3,12 +3,13 @@
     <section class="sidebar">
 
         <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+        <div class="user-panel" style="position: inherit; margin: 0 0 20px 0;">
+            <div class="pull-left image" style="margin-top: 3px;">
+                <img src="<?=(Yii::$app->request->hostInfo); ?>/uploads/<?=Yii::$app->user->identity->photo;?>"
+					  class="" alt="Аватар пользователя"/>
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p><?= Yii::$app->user->identity->name; ?></p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -31,6 +32,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Пользователи', 'icon' => 'file-code-o', 'url' => ['/admin/user/']],
+
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],

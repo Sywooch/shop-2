@@ -12,7 +12,7 @@ use yii\helpers\Html;
     <nav class="navbar navbar-static-top" role="navigation">
 
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">Переключатель навигации</span>
         </a>
 
         <div class="navbar-custom-menu">
@@ -225,44 +225,35 @@ use yii\helpers\Html;
                         </li>
                     </ul>
                 </li>
+
                 <!-- User Account: style can be found in dropdown.less -->
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <img src="<?=(Yii::$app->request->hostInfo); ?>/uploads/<?=Yii::$app->user->identity->photo;?>" class="user-image" alt="User Image"/>
+                        <span class="hidden-xs"><?= Yii::$app->user->identity->name; ?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
-                                 alt="User Image"/>
-
+                            <img src="<?=(Yii::$app->request->hostInfo); ?>/uploads/<?=Yii::$app->user->identity->photo; ?>"
+								 class=""
+                                 alt="Аватар пользователя"
+								 style="width: auto!important;"
+							 />
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                <?= Yii::$app->user->identity->name; ?> - Администратор
+                                <small><?= date("Y-m-d H:i:s"); ?></small>
                             </p>
-                        </li>
-                        <!-- Menu Body -->
-                        <li class="user-body">
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Sales</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
-                            </div>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="#" class="btn btn-default btn-flat">Профиль</a>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(
-                                    'Sign out',
+                                    'Выход',
                                     ['/auth/logout'],
                                     ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
                                 ) ?>
