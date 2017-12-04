@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use Yii;
 use yii\web\Controller;
 
 /**
@@ -15,6 +16,9 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
+        if (!isset(Yii::$app->user->identity->isAdmin)) {
+            return Yii::$app->controller->redirect(['/auth/login']);
+        }
         return $this->render('index');
     }
 }
