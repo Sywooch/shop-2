@@ -1,0 +1,73 @@
+.categories
+  display flex
+  width 100%
+  justify-content space-around
+  flex-wrap wrap
+
+.categories__item
+  margin 17.5px 15px
+
+  a
+    display flex
+    flex-direction column
+    text-decoration underline
+    cursor pointer
+    transition .2s
+
+    p
+      padding 8px 0
+      transition .2s
+
+    &:hover
+      text-decoration none
+      filter brightness(.9)
+
+      p
+        background-color #fff
+
+
+
+.special
+  position relative
+  margin-top 0
+  margin-bottom 0
+  width 31rem
+  border 5px solid #fdcf08
+  flex-basis 43.9%
+
+.special__content
+  position absolute
+  top 50%
+  left 50%
+  width 55%
+  font-size .9rem
+  line-height 1.3
+  text-align left
+  letter-spacing .5px
+  transform translate(-50%, -55%)
+
+.special__header
+  font-size 1.6rem
+  font-weight 500
+
+.special__control
+  position absolute
+  right 15px
+  bottom 10px
+  display block
+  width 18px
+  height 30px
+  background-color #fff
+  background-image url('https://oormk.ru/images/contr-right.png')
+  border none
+  transition .3s
+
+  &:hover
+    transform translateX(5px)
+
+.special__control-left
+  right 58px
+  background-image url('https://oormk.ru/images/contr-left.png')
+
+  &:hover
+    transform translateX(-5px)

@@ -1,0 +1,90 @@
+html
+  margin 0
+  padding 0
+  width 100%
+  height 100%
+  font-size 100.01%
+
+body
+  margin 0
+  padding 0
+  width 100%
+  height 100%
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+a, .btn-link
+  font-family 'PT sans', 'pt_sansrubl', sans-serif
+  letter-spacing .02rem
+  color $main-link-color
+  transition color .3s
+
+a:hover, a:focus, .btn-link:hover, .btn-link:focus
+  color $main-link-hover-color
+
+#app
+  padding-top 60px
+  display flex
+  flex-direction column
+  min-height 100vh
+  font-family 'Avenir', Helvetica, Arial, sans-serif
+  text-align center
+  color $main-text-color
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+.container
+  margin 0 auto
+  width 100%
+  max-width 1170px
+
+.banner-sale
+  margin 0 0 55px
+  padding 5px 0
+  display block
+  font 13px / 16px 'PT sans', 'pt_sansrubl', sans-serif
+  text-align center
+  text-decoration underline
+  letter-spacing .2em
+  text-transform uppercase
+  color #fff
+  background-color #f14f38
+
+.banner-sale:hover, .banner-sale:focus
+  color #ddd
+
+.floatcart
+  position fixed
+  right 0
+  bottom 0
+  padding .7rem 0 .6rem
+  width 10rem
+  font-size .9rem
+  text-align center
+  cursor pointer
+  background-color #fdcf08
+  transition background-color .3s
+
+  &:hover
+    background-color #ffd934
+
+.pages-wrpaper
+  display flex
+
+.pages-sidebar
+  float left
+  flex-basis 27%
+  // background-color #eee
+
+.pages-content
+  display flex
+  // background-color #c8dfbf
+  flex-basis 100%
+
+@media screen and (max-width: 768px)
+  .pages-sidebar
+    display none
+
+  .pages-content
+    float right
+    flex-basis 100%

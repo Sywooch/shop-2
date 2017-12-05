@@ -1,0 +1,34 @@
+include /../node_modules/bemto.jade/bemto
+include /../node_modules/jade-injected/jade-injected
+include ../page/page
+include ../navbar/navbar
+include ../header/header
+include ../sidebar/sidebar
+include ../footer/footer
+include ../scripts/scripts
+
+doctype html
+html(lang='ru')
+  include ../head/head
+  +page
+    #app
+      .container
+        +navbar
+          block navbar
+        +header
+          block header
+
+        a.banner-sale(href='/sale.html') Распродажа!
+
+        .pages-wrpaper
+          block sidebar
+
+          main.pages-content
+            block content
+
+      +footer
+        block footer
+
+    +scripts(['vue.js'])
+    +scripts(['app.min.js'])
+

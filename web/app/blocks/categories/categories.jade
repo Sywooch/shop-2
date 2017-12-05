@@ -1,0 +1,21 @@
+mixin categories()
+	ul.categories
+		- for (var i=1; i<7; i++)
+				li.categories__item
+					a
+						img(src="http://placehold.it/220x150/FFF")
+						p= 'Категория ' + i
+
+		li.categories__item.special
+			.special__content
+				.special__header
+					h3 Спецпредложения
+				p Сделайте заказ сегодня и получите скидку 25% на доставку (а/м FOTON)
+			button.special__control.special__control-left
+			button.special__control.special__control-right
+
+		- for (var i=1; i<9; i++)
+				li.categories__item
+					a
+						img(src="http://placehold.it/220x150/FFF")
+						p= 'Категория ' + i

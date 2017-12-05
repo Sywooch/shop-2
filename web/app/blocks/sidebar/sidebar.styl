@@ -1,0 +1,43 @@
+.sidebar
+  list-style none
+
+.sidebar__item
+  padding 0 0 15px
+  text-align left
+
+  &:last-child
+    padding-bottom 0
+
+.show-sidebar-list
+  &::after
+    padding-left 2px
+    cursor pointer
+    content '\25bc'
+    transition .3s
+
+  &:hover
+    color #3b9ebf
+
+.show-sidebar-list_up
+  &:after
+    content '\25b2'
+
+.sidebar__item > a, .sidebar__item > a:hover
+  color var(--main-text-color)
+
+.sidebar__item > a:hover, .products__item > a:hover
+  text-decoration none
+
+.products
+  padding 5px 5px 0
+  display none
+
+.products__item
+  padding-bottom 5px
+  list-style none
+
+  &:last-child
+    padding-bottom 0
+
+  & > a
+    font-size .8rem
