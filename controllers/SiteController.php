@@ -64,6 +64,16 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays homepage.
+     *
+     * @return string
+     */
+    public function actionCompany()
+    {
+        return $this->render('company');
+    }
+
+    /**
      * Displays contact page.
      *
      * @return Response|string
