@@ -40,14 +40,14 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Главная', 'url' => ['/site/index']],
+            ['label' => 'О компании', 'url' => ['/site/about']],
+            ['label' => 'Контакты', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
-            	['label' => 'Signup', 'url' => ['/auth/signup']]
+            	['label' => 'Регистрация', 'url' => ['/auth/signup']]
             ) : (''),
             Yii::$app->user->isGuest ? (
-            	['label' => 'Login', 'url' => ['/auth/login']]
+            	['label' => 'Вход', 'url' => ['/auth/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/auth/logout'], 'post')
