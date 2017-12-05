@@ -36,6 +36,9 @@ PublicAsset::register($this);
       .navbar-toggle .icon-bar {
         background-color: #3c3c3c!important;
       }
+      .navbar-fixed-top .navbar-collapse {
+        max-height: 100%!important;
+      }
     </style>
 </head>
 
