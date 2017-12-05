@@ -61,9 +61,10 @@ PublicAsset::register($this);
                 ['label' => 'Полезное', 'url' => ['/']],
                 ['label' => 'Контакты', 'url' => ['/site/contact']],
 
-                Yii::$app->user->isGuest ? (
-                    ['label' => '', 'url' => ['/auth/signup']]
-                ) : (''),
+                // Yii::$app->user->isGuest ? (
+                //     ['label' => '', 'url' => ['/auth/signup']]
+                // ) : (''),
+
                 Yii::$app->user->isGuest ? (
                     ['label' => '', 'url' => ['/auth/login']]
                 ) : (
