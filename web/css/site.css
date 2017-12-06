@@ -92,7 +92,7 @@ a.desc:after {
         padding: 0;
         font-size: .9rem;
     }
-    .nav li {
+    .navbar.nav li {
         margin: 0 1rem;
         display: inline-block;
         width: 100%!important;

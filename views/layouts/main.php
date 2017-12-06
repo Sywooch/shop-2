@@ -11,34 +11,36 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 use app\assets\PublicAsset;
+use pceuropa\menu\Menu;
 
 PublicAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+	<!DOCTYPE html>
+	<html lang="<?= Yii::$app->language ?>">
 
 <head>
   <meta charset="<?= Yii::$app->charset ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <?= Html::csrfMetaTags() ?>
+    <?= Html::csrfMetaTags() ?>
 
-    <title>
+	<title>
       <?= Html::encode($this->title) ?>
     </title>
 
     <?php $this->head() ?>
 
-    <style>
+	<style>
       .navbar-toggle .icon-bar {
-        background-color: #3c3c3c!important;
-      }
-      .navbar-fixed-top .navbar-collapse {
-        max-height: 100%!important;
-      }
+		  background-color: #3c3c3c !important;
+	  }
+
+	  .navbar-fixed-top .navbar-collapse {
+		  max-height: 100% !important;
+	  }
     </style>
 </head>
 
@@ -48,52 +50,28 @@ PublicAsset::register($this);
   <div id="app">
     <div class="container">
       <?php
-        NavBar::begin([
-            'options' => [
-                'class' => 'navbar navbar-fixed-top',
-            ],
-        ]);
-        echo Nav::widget([
-            'options' => ['class' => 'navbar'],
-            'items' => [
-                ['label' => 'Компания', 'url' => ['/site/company']],
-                ['label' => 'Металлобработка', 'url' => ['/']],
-                ['label' => 'Прайс', 'url' => ['/']],
-                ['label' => 'Акции', 'url' => ['/']],
-                ['label' => 'Оплата', 'url' => ['/']],
-                ['label' => 'Полезное', 'url' => ['/']],
-                ['label' => 'Контакты', 'url' => ['/site/contact']],
+      NavBar::begin([
+          'options' => [
+              'class' => 'navbar navbar-fixed-top',
+          ],
+      ]);
 
-                // Yii::$app->user->isGuest ? (
-                //     ['label' => '', 'url' => ['/auth/signup']]
-                // ) : (''),
+      echo Nav::widget(['options' => ['class' => 'navbar'],
+          'items' => Menu::NavbarLeft(1),  // argument is id of menu
+      ]);
 
-                Yii::$app->user->isGuest ? (
-                    ['label' => '', 'url' => ['/auth/login']]
-                ) : (
-                    '<li>'
-                    . Html::beginForm(['/auth/logout'], 'post')
-                    . Html::submitButton(
-                        'Выход (' . Yii::$app->user->identity->name . ')',
-                        ['class' => 'btn btn-link logout']
-                    )
-                    . Html::endForm()
-                    . '</li>'
-                )
-            ],
-        ]);
-        NavBar::end();
+      NavBar::end();
       ?>
 
-      <header class="pages-header">
-        <a href="/">
-          <div class="logo logo__pages-footer">ооо "кмопания"</div>
-        </a>
-        <div class="contacts">
-          <span class="phone">+0 000-00-00</span>
-          <a href="mailto:info@oormk.ru" class="mail">info@company.ru</a>
-        </div>
-      </header>
+	  <header class="pages-header">
+		<a href="/">
+		  <div class="logo logo__pages-footer">ооо "кмопания"</div>
+		</a>
+		<div class="contacts">
+		  <span class="phone">+0 000-00-00</span>
+		  <a href="mailto:info@oormk.ru" class="mail">info@company.ru</a>
+		</div>
+	  </header>
     </div>
 
     <div class="container">
@@ -102,8 +80,8 @@ PublicAsset::register($this);
 
     <div class="container">
       <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+          'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+      ]) ?>
 
       <?= Alert::widget() ?>
 
@@ -131,7 +109,7 @@ PublicAsset::register($this);
           </ul>
           <div class="pages-footer__info">
             <p>&copy; My Company
-              <?= date('Y') ?>
+                <?= date('Y') ?>
             </p>
             <p class="adr">
               <span class="street-address">000000, г. Москва, адрес</span>

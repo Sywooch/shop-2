@@ -31,23 +31,23 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Страницы', 'icon' => 'file-text', 'url' => ['#']],
+                    ['label' => 'Страницы', 'icon' => 'file-text', 'url' => ['/admin']],
                     [
                         'label' => 'Категории',
                         'icon' => 'share',
-                        'url' => '#',
+                        'url' => '/admin',
                         'items' => [
-                            ['label' => 'Товары', 'icon' => 'shopping-cart', 'url' => ['#'],],
-                            ['label' => 'Услуги', 'icon' => 'wrench', 'url' => ['#'],],
+                            ['label' => 'Товары', 'icon' => 'shopping-cart', 'url' => ['/admin'],],
+                            ['label' => 'Услуги', 'icon' => 'wrench', 'url' => ['/admin'],],
                         ],
                     ],
-                    ['label' => 'Товары', 'icon' => 'shopping-cart', 'url' => ['#']],
-					['label' => 'Услуги', 'icon' => 'wrench', 'url' => ['#']],
-					['label' => 'Прайс', 'icon' => 'file-text-o', 'url' => ['#']],
-                    ['label' => 'Контакты', 'icon' => 'tty', 'url' => ['#']],
+                    ['label' => 'Товары', 'icon' => 'shopping-cart', 'url' => ['/admin']],
+					['label' => 'Услуги', 'icon' => 'wrench', 'url' => ['/admin']],
+					['label' => 'Прайс', 'icon' => 'file-text-o', 'url' => ['/admin']],
+                    ['label' => 'Контакты', 'icon' => 'tty', 'url' => ['/admin']],
                     ['label' => 'Пользователи', 'icon' => 'user', 'url' => ['/admin/user/']],
-                    ['label' => 'Навигация', 'icon' => 'reorder', 'url' => ['#']],
-                    ['label' => 'Настройки', 'icon' => 'gear', 'url' => ['#']],
+                    ['label' => 'Меню', 'icon' => 'reorder', 'url' => ['/admin/menu']],
+                    ['label' => 'Настройки', 'icon' => 'gear', 'url' => ['/admin']],
 
 //                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
 //                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],

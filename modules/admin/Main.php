@@ -8,7 +8,7 @@ use yii\filters\AccessControl;
 /**
  * admin module definition class
  */
-class Module extends \yii\base\Module
+class Main extends \yii\base\Module
 {
     /**
      * @inheritdoc
@@ -16,7 +16,6 @@ class Module extends \yii\base\Module
 
     public $controllerNamespace = 'app\modules\admin\controllers';
     public $layout ='main';
-    public $layoutPath ='@app/views/layouts/admin/layouts';
 
     /**
      *
@@ -51,5 +50,13 @@ class Module extends \yii\base\Module
     {
         parent::init();
         // custom initialization code goes here
+
+        if (isset(Yii::$app->user->identity->isAdmin)) {
+            $this->modules = [
+                'menu' => [
+                    'class' => 'app\modules\admin\Menu',
+                ],
+            ];
+        }
     }
 }
