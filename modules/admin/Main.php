@@ -56,6 +56,19 @@ class Main extends \yii\base\Module
                 'menu' => [
                     'class' => 'app\modules\admin\Menu',
                 ],
+                'pages' => [
+                    'class' => 'bupy7\pages\Module',
+                    'tableName' => '{{%page}}',
+                    'imperaviLanguage' => 'ru',
+                    'pathToImages' => '@webroot/uploads',
+                    'urlToImages' => '@web/uploads',
+                    'pathToFiles' => '@webroot/uploads',
+                    'urlToFiles' => '@web/uploads',
+                    'uploadImage' => true,
+                    'uploadFile' => true,
+                    'addImage' => true,
+                    'addFile' => true,
+                ]
             ];
         }
     }

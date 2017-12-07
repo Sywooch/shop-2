@@ -54,6 +54,8 @@ $config = [
                 '<action:(index)>'=>'site/<action>',
                 '<action:(login|logout|signup)>'=>'auth/<action>',
 
+                'pages/<page:[\w-]+>' => 'pages/default/index',
+
 
 //                '<controller:\w+>/<id:\d+>' => '<controller>/view',
 //                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
@@ -64,6 +66,19 @@ $config = [
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Main',
+        ],
+        'pages' => [
+            'class' => 'bupy7\pages\Module',
+            'tableName' => '{{%page}}',
+            'imperaviLanguage' => 'ru',
+            'pathToImages' => '@webroot/uploads',
+            'urlToImages' => '@web/uploads',
+            'pathToFiles' => '@webroot/uploads',
+            'urlToFiles' => '@web/uploads',
+            'uploadImage' => true,
+            'uploadFile' => true,
+            'addImage' => true,
+            'addFile' => true,
         ],
     ],
     'params' => $params,

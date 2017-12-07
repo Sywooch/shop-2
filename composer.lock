@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "85fd5b540a5dc0cbdf8bc92ba8500267",
+    "content-hash": "9d094e8f5f5f7eaf6b085a886f9e112e",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -146,6 +146,53 @@
             "license": [
                 "MIT"
             ]
+        },
+        {
+            "name": "bupy7/yii2-pages",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bupy7/yii2-pages.git",
+                "reference": "c3bc27236da47a2eee079ea10b6ef0c9c9dd0934"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bupy7/yii2-pages/zipball/c3bc27236da47a2eee079ea10b6ef0c9c9dd0934",
+                "reference": "c3bc27236da47a2eee079ea10b6ef0c9c9dd0934",
+                "shasum": ""
+            },
+            "require": {
+                "vova07/yii2-imperavi-widget": "1.2.10",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-bootstrap": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "bupy7\\pages\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Belosludcev Vasilij",
+                    "email": "bupy765@gmail.com",
+                    "homepage": "http://mihaly4.ru"
+                }
+            ],
+            "description": "Module implements CRUD with static pages with uses Imperavi Redactor.",
+            "homepage": "https://github.com/bupy7/yii2-pages",
+            "keywords": [
+                "extension",
+                "module",
+                "pages",
+                "static",
+                "yii2"
+            ],
+            "time": "2016-11-12 08:35:36"
         },
         {
             "name": "cebe/markdown",
@@ -660,6 +707,68 @@
                 "mailer"
             ],
             "time": "2017-11-23T14:49:16+00:00"
+        },
+        {
+            "name": "vova07/yii2-imperavi-widget",
+            "version": "1.2.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vova07/yii2-imperavi-widget.git",
+                "reference": "6835bfe3c6d77d00c3033a7f8a54e85ac446d5ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vova07/yii2-imperavi-widget/zipball/6835bfe3c6d77d00c3033a7f8a54e85ac446d5ac",
+                "reference": "6835bfe3c6d77d00c3033a7f8a54e85ac446d5ac",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1",
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                },
+                "asset-installer-paths": {
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "vova07\\imperavi\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Crudu Vasile",
+                    "email": "bazillio07@yandex.ru",
+                    "homepage": "https://github.com/vova07",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The imperavi redactor widget for Yii 2 framework.",
+            "homepage": "https://github.com/vova07/yii2-imperavi-widget",
+            "keywords": [
+                "Redactor",
+                "extension",
+                "imperavi",
+                "widget",
+                "wysiwyg",
+                "yii",
+                "yii 2",
+                "yii2"
+            ],
+            "time": "2015-12-10T21:16:23+00:00"
         },
         {
             "name": "yiisoft/yii2",
