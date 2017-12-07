@@ -19,6 +19,6 @@ class DefaultController extends Controller
         if (!isset(Yii::$app->user->identity->isAdmin)) {
             return Yii::$app->controller->redirect(['/auth/login']);
         }
-        return $this->render('index');
+        return $this->redirect('/admin/pages/manager');
     }
 }

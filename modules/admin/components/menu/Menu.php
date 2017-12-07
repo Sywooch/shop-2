@@ -1,21 +1,18 @@
 <?php
-namespace app\modules\admin;
+namespace app\modules\admin\components\menu;
 #Copyright (c) 2017 Rafal Marguzewicz pceuropa.net
 
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Json;
-use pceuropa\menu\models\Model;
+use app\modules\admin\components\menu\models\Model;
 
-class Menu extends \yii\base\Module {
-	public $controllerNamespace = 'pceuropa\menu\controllers';
+class Menu extends yii\base\Module {
+	public $controllerNamespace = 'app\modules\admin\components\menu\controllers';
 	public $defaultRoute = 'creator';
-    public $layout ='main';
-
 
     public function init(){
 		parent::init();	  // custom initialization code goes here
-        $this->setLayoutPath('@app/modules/admin/views/layouts/');
 	}
 	
     public static function NavbarLeft($id){

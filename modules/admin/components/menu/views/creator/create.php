@@ -4,7 +4,8 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
-app\assets\MenuAsset::register($this);
+app\modules\admin\components\menu\MenuAsset::register($this);
+
 $this->title = Yii::t('app', 'Создать');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Меню'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

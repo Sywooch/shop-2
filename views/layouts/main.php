@@ -17,8 +17,8 @@ PublicAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 
-	<!DOCTYPE html>
-	<html lang="<?= Yii::$app->language ?>">
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
 
 <head>
   <meta charset="<?= Yii::$app->charset ?>">
@@ -59,7 +59,6 @@ PublicAsset::register($this);
       echo Nav::widget(['options' => ['class' => 'navbar'],
           'items' => Menu::NavbarLeft(1),  // argument is id of menu
       ]);
-
       NavBar::end();
       ?>
 
@@ -84,8 +83,118 @@ PublicAsset::register($this);
       ]) ?>
 
       <?= Alert::widget() ?>
-
-      <?= $content ?>
+		<div class="pages-wrpaper">
+			<aside class="pages-sidebar">
+				<ul class="sidebar">
+					<li class="sidebar__item">
+						<a href="#">Название категории товаров</a>
+						<span class="show-sidebar-list"></span>
+						<ul class="products">
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+						</ul>
+					</li>
+					<li class="sidebar__item">
+						<a href="#">Название категории товаров</a>
+						<span class="show-sidebar-list"></span>
+						<ul class="products">
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+						</ul>
+					</li>
+					<li class="sidebar__item">
+						<a href="#">Название категории товаров</a>
+						<span class="show-sidebar-list"></span>
+						<ul class="products">
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+						</ul>
+					</li>
+					<li class="sidebar__item">
+						<a href="#">Название категории товаров</a>
+						<span class="show-sidebar-list"></span>
+						<ul class="products">
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+						</ul>
+					</li>
+					<li class="sidebar__item">
+						<a href="#">Название категории товаров</a>
+						<span class="show-sidebar-list"></span>
+						<ul class="products">
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+							<li class="products__item">
+								<a href="#">Название товара</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</aside>
+			<main class="pages-content" style="display: block;"><?= $content ?></main>
+		</div>
     </div>
 
     <footer class="pages-footer">

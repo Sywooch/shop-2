@@ -5,6 +5,8 @@
 $this->title = 'Асгард';
 ?>
 
+<style>.pages-sidebar {display: none}</style>
+
 <div class="pages-wrpaper">
     <main class="pages-content">
         <ul class="categories">

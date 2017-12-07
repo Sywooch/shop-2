@@ -1,6 +1,6 @@
 <?php
 #Copyright (c) 2017 Rafal Marguzewicz pceuropa.net LTD
-use app\modules\admin\Menu;
+use app\modules\admin\components\menu\Menu;
 use yii\helpers\Html;
 use yii\grid\GridView;
 

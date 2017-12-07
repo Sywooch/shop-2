@@ -54,10 +54,10 @@ class Main extends \yii\base\Module
         if (isset(Yii::$app->user->identity->isAdmin)) {
             $this->modules = [
                 'menu' => [
-                    'class' => 'app\modules\admin\Menu',
+                    'class' => 'app\modules\admin\components\menu\Menu',
                 ],
                 'pages' => [
-                    'class' => 'bupy7\pages\Module',
+                    'class' => 'app\modules\admin\components\pages\Module',
                     'tableName' => '{{%page}}',
                     'imperaviLanguage' => 'ru',
                     'pathToImages' => '@webroot/uploads',

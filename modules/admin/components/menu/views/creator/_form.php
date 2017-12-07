@@ -3,7 +3,7 @@
 // $this->registerJsFile('@web/js/menu/menu.js', ['depends' => 'yii\web\YiiAsset']);
 
 use yii\bootstrap\BaseHtml;
-use pceuropa\menu\models\Model;
+use app\modules\admin\components\menu\models\Model;
 //$glyphicons = \pceuropa\menu\icons\Glyphicons::forge()->getAll();
 //$glyphicons = json_encode($glyphicons);
 //$this->registerJs( " window.glyphicons = {$glyphicons}; ", \yii\web\View::POS_HEAD);

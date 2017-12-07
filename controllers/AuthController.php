@@ -10,6 +10,8 @@ use app\models\SignupForm;
 
 class AuthController extends Controller
 {
+    public $layout ='auth';
+
     /**
      * @inheritdoc
      */
@@ -41,7 +43,7 @@ class AuthController extends Controller
             $this->isAdmin() ?  $this->redirect(['/admin']) : $this->goBack();
         }
 
-        return $this->render('/site/login', [
+        return $this->render('/auth/login', [
             'model' => $model,
         ]);
     }
@@ -73,7 +75,7 @@ class AuthController extends Controller
             }
         }
 
-        return $this->render('/site/signup', ['model' => $model]);
+        return $this->render('/auth/signup', ['model' => $model]);
     }
 
     public function actionTest()

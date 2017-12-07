@@ -2,7 +2,7 @@
 #Copyright (c) 2017 Rafal Marguzewicz pceuropa.net LTD
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use app\modules\admin\Menu;
+use app\modules\admin\components\menu\Menu;
 
 $this->title = Yii::t('app', 'Вид');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Меню'), 'url' => ['index']];

@@ -31,7 +31,7 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Страницы', 'icon' => 'file-text', 'url' => ['/admin']],
+                    ['label' => 'Страницы', 'icon' => 'file-text', 'url' => ['/admin/pages/manager']],
                     [
                         'label' => 'Категории',
                         'icon' => 'share',
