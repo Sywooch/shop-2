@@ -58,8 +58,6 @@ class Main extends \yii\base\Module
                 ],
                 'pages' => [
                     'class' => 'app\modules\admin\components\pages\Module',
-                    'tableName' => '{{%page}}',
-                    'imperaviLanguage' => 'ru',
                     'pathToImages' => '@webroot/uploads',
                     'urlToImages' => '@web/uploads',
                     'pathToFiles' => '@webroot/uploads',

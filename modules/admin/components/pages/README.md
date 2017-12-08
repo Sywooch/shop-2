@@ -1,37 +1,42 @@
 yii2-pages
 ==========
 
-[![Latest Stable Version](https://poser.pugx.org/bupy7/yii2-pages/v/stable)](https://packagist.org/packages/bupy7/yii2-page)
-[![Total Downloads](https://poser.pugx.org/bupy7/yii2-pages/downloads)](https://packagist.org/packages/bupy7/yii2-pages)
-[![Latest Unstable Version](https://poser.pugx.org/bupy7/yii2-pages/v/unstable)](https://packagist.org/packages/bupy7/yii2-pages)
-[![License](https://poser.pugx.org/bupy7/yii2-pages/license)](https://packagist.org/packages/bupy7/yii2-pages)
+Модуль реализует crud с статических страниц с использованием редактора Imperavi.
 
-Module implements CRUD with static pages with uses Imperavi Redactor.
-
-Installation
+Установка
 ------------
 
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
-
-Either run
+Ставим расширение через композер:
 
 ```
 php composer.phar require --prefer-dist bupy7/yii2-pages "*"
 ```
 
-or add
-
-```
-"bupy7/yii2-pages": "*"
-```
-
-to the require section of your `composer.json` file.
-
-
-Installation
+Фиксим Imperavi
 ------------
 
-**Add module to your config file:**
+! После установки yii2-pages и Imperavi, необходимо в файле "Asset.php", 
+расположеному в папек "vendor/vova07/impravi", на 41 строке добавить этот код: 	
+
+```
+public $js = [
+    'jquery-1.12.4.min.js',
+    'redactor.js'
+];
+```
+
+После чего, необходимо взять файл "jquery-1.12.4.min.js" из папки web/js 
+и поместить в папку "vendor/vova07/impravi/src/assets"
+
+Так же нужно взять файл "redactor.css" из папки web/css и
+поместить его в директорию vendor/vova07/impravi/src/assets, заменив оригинал.
+
+Это устранит проблемы с высотой строк и ненужными отступами в редакторе.
+
+Установка
+------------
+
+**Добавить модуль в ваш конфигурационный файл:**
 
 ```php
 'modules' => [
@@ -43,8 +48,9 @@ Installation
 ]
 ```
 
-By default module uses table name '{{%page}}'. If in your database this table is 
-exist - change it adding to configuration of module new table name:
+По умолчанию модуль использует имя таблицы '{{%страницы}}'. 
+Если в базе данных эта Таблица существуют, 
+изменить его добавление в конфигурацию модуля новое имя таблицы
 
 ```php
 'modules' => [
@@ -55,12 +61,6 @@ exist - change it adding to configuration of module new table name:
         'tableName' => '{{%your_table_name}}',
     ],
 ]
-```
-
-**Run migration**
-
-```php
-./yii migrate/up --migrationPath=@bupy7/pages/migrations
 ```
 
 Usage
@@ -113,7 +113,7 @@ Example:
 ],
 ```
 
-You can upload and add files/images via Imperavi Redactor, if enable it:
+Вы можете загружать и добавлять файлы/изображения через Imperavi редактор, если его включить:
 
 ```php
 'modules' => [

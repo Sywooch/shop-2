@@ -22,7 +22,7 @@ class PageSearch extends Page
     {
         return [
             [['id', 'published'], 'integer'],
-            [['title', 'alias', 'created_at', 'updated_at'], 'safe'],
+            [['title', 'alias', 'template', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 

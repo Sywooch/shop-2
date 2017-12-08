@@ -81,6 +81,7 @@ class Page extends ActiveRecord
             [['title', 'alias', 'title_browser'], 'string', 'max' => 255],
             [['meta_keywords'], 'string', 'max' => 200],
             [['meta_description'], 'string', 'max' => 160],
+            [['template'], 'string', 'max' => 100],
             [['alias'], 'unique'],
         ];
     }
@@ -96,6 +97,7 @@ class Page extends ActiveRecord
             'alias' => Module::t('ALIAS'),
             'published' => Module::t('PUBLISHED'),
             'content' => Module::t('CONTENT'),
+            'template' => Module::t('TEMPLATE'),
             'title_browser' => Module::t('TITLE_BROWSER'),
             'meta_keywords' => Module::t('META_KEYWORDS'),
             'meta_description' => Module::t('META_DESCRIPTION'),

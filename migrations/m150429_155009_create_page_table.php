@@ -9,33 +9,34 @@ use yii\db\Migration;
  */
 class m150429_155009_create_page_table extends Migration
 {
-    
     private $_tableName;
-    
-    public function init()
+
+    /**
+     * @inheritdoc
+     */
+    public function safeUp()
     {
-        parent::init();
+        $tableOptions = null;
         $this->_tableName = 'page';
-    }
-    
-    public function up()
-    {
-        $this->createTable(
-            $this->_tableName,
-            [
-                'id' => Schema::TYPE_PK,
-                'title' => Schema::TYPE_STRING . ' NOT NULL',
-                'alias' => Schema::TYPE_STRING . ' NOT NULL',
-                'published' => Schema::TYPE_BOOLEAN . ' DEFAULT 1',
-                'content' => Schema::TYPE_TEXT,
-                'title_browser' => Schema::TYPE_STRING,
-                'meta_keywords' => Schema::TYPE_STRING . '(200)',
-                'meta_description' => Schema::TYPE_STRING . '(160)',
-                'created_at' => Schema::TYPE_TIMESTAMP . ' NOT NULL DEFAULT "0000-00-00 00:00:00"',
-                'updated_at' => Schema::TYPE_TIMESTAMP . ' NOT NULL DEFAULT "0000-00-00 00:00:00"',
-            ]
-        );
-        $this->createIndex('alias', $this->_tableName, ['alias'], true);
+
+        if ($this->db->driverName === 'mysql') {
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+        }
+
+        $this->createTable( $this->_tableName, [
+            'id' => $this->primaryKey(),
+            'title'=>$this->string(),
+            'alias'=>$this->string()->notNull()->unique(),
+            'published' => $this->boolean()->defaultValue( true),
+            'content' => $this->text(),
+            'title_browser'=>$this->string()->defaultValue(null),
+            'meta_keywords' => $this->string(),
+            'meta_description' => $this->string(),
+            'template'=>$this->string(),
+            'created_at' => $this->dateTime(),
+            'updated_at' => $this->dateTime(),
+        ], $tableOptions);
+
         $this->createIndex('alias_and_published', $this->_tableName, ['alias', 'published']);
     }
 

@@ -20,37 +20,39 @@ echo $form->field($model, 'published')->checkbox();
 
 $settings = [
     'minHeight' => 200,
-	'buttons'=> ['html','formatting','bold','italic','deleted',
-        'unorderedlist','orderedlist','outdent','indent',
-        'image','file','link','alignment','horizontalrule'],
 	'pastePlainText' => true,
-    'plugins' => [
-        'fullscreen',
-    ],
-	"plugins" =>  ["table", "fontcolor", "fontsize", "video", "fullscreen"],
+	"plugins" =>  [
+		"table", "fontcolor", "fontsize", "fontfamily",
+		"video", "clips", "counter", "definedlinks",
+		"filemanager", "imagemanager", "limiter", "textdirection",
+		"textexpander", "fullscreen"
+	],
 ];
-if ($module->imperaviLanguage) {
-    $settings['lang'] = $module->imperaviLanguage;
-}
-if ($module->addImage || $module->uploadImage) {
+//if ($module->imperaviLanguage) {
+    $settings['lang'] = 'ru';
+//}
+//if ($module->addImage || $module->uploadImage) {
     $settings['plugins'][] = 'imagemanager';
-}
-if ($module->addImage) {
+//}
+//if ($module->addImage) {
     $settings['imageManagerJson'] = Url::to(['images-get']);
-}
-if ($module->uploadImage) {
+//}
+//if ($module->uploadImage) {
     $settings['imageUpload'] = Url::to(['image-upload']);
-}
-if ($module->addFile || $module->uploadFile) {
+//}
+//if ($module->addFile || $module->uploadFile) {
     $settings['plugins'][] = 'filemanager';
-}
-if ($module->addFile) {
+//}
+//if ($module->addFile) {
     $settings['fileManagerJson'] = Url::to(['files-get']);
-}
-if ($module->uploadFile) {
+//}
+//if ($module->uploadFile) {
     $settings['fileUpload'] = Url::to(['file-upload']);
-}
-echo $form->field($model, 'content')->widget(Imperavi::className(), [
+//}
+echo $form->field($model, 'content', [
+		'options' => [
+              'style' => 'max-width: 950px; margin:auto;',
+          ]])->widget(Imperavi::className(), [
     'settings' => $settings,
 ]);
 
@@ -60,8 +62,24 @@ echo $form->field($model, 'meta_keywords')->textInput(['maxlength' => 200]);
 
 echo $form->field($model, 'meta_description')->textInput(['maxlength' => 160]);
 
-echo $form->field($model, 'meta_description')->textInput(['maxlength' => 160]);
+echo $form->field($model, 'template')->dropdownList([
+    'static' => 'Статичная страница',
+    'products' => 'Товары',
+    'services' => 'Услуги',
+    'delivery' => 'Доставка',
+    'contacts' => 'Контакты',
+    'index' => 'Главная',
+])->label('Шаблон');
 ?>
+
+<ul>
+	<li>Статичная страница - только контент из редактора</li>
+	<li>Товары  - список категорий товаров + контент из редактора</li>
+	<li>Услуги  - список категорий услуг + контент из редактора</li>
+	<li>Доставка - калькулятор доставки + контент из редактора</li>
+	<li>Контакты - контактные данные + контент из редактора</li>
+</ul>
+
 <div class="form-group">
     <?= Html::submitButton($model->isNewRecord ? Module::t('CREATE') : Module::t('UPDATE'), [
         'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
