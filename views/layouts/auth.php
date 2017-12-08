@@ -4,16 +4,11 @@
 
 /* @var $content string */
 
-use app\widgets\Alert;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use yii\helpers\Url;
-use app\assets\PublicAsset;
-use pceuropa\menu\Menu;
+use app\assets\AppAsset;
 
-PublicAsset::register($this);
+
+AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 
@@ -37,8 +32,8 @@ PublicAsset::register($this);
 <body class="page">
   <?php $this->beginBody() ?>
 
-  <div class="container">
-	  <div class="row"><?= $content ?></div>
+  <div class="form-container">
+	  <?= $content ?>
   </div>
 
   <?php $this->endBody() ?>

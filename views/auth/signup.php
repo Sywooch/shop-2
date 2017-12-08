@@ -20,8 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
 		'id' => 'login-form',
 		'layout' => 'horizontal',
 		'fieldConfig' => [
-			'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-			'labelOptions' => ['class' => 'col-lg-1 control-label'],
+			'template' => "{label}\n<div class=\"col-lg-10\">{input}</div>\n<div class=\"col-lg-12\">{error}</div>",
+			'labelOptions' => ['class' => 'col-lg-2 control-label'],
 		],
 	]); ?>
 
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?= $form->field($model, 'password')->passwordInput()->label('Пароль') ?>
 
     <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-        'template' => '<div class="row"><div class="col-lg-6">{image}</div><div class="col-lg-6">{input}</div></div>',
+        'template' => '<div class="row"><div style="text-align: center" class="col-lg-6">{image}</div><div class="col-lg-6">{input}</div></div>',
     ])->label('Каптча') ?>
 
 	<div class="form-group">

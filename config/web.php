@@ -54,7 +54,7 @@ $config = [
                 '<action:(index)>'=>'site/<action>',
                 '<action:(login|logout|signup)>'=>'auth/<action>',
 
-                'pages/<page:[\w-]+>' => 'pages/default/index',
+                '<page:[\w-]+>' => 'pages/default/index',
 
 
 //                '<controller:\w+>/<id:\d+>' => '<controller>/view',

@@ -60,7 +60,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('/pages/index');
     }
 
     /**
@@ -70,7 +70,7 @@ class SiteController extends Controller
      */
     public function actionCompany()
     {
-        return $this->render('company');
+        return $this->render('/pages/company');
     }
 
     /**
@@ -86,7 +86,7 @@ class SiteController extends Controller
 
             return $this->refresh();
         }
-        return $this->render('contact', [
+        return $this->render('/pages/contact', [
             'model' => $model,
         ]);
     }
@@ -98,6 +98,6 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        return $this->render('/pages/about');
     }
 }
