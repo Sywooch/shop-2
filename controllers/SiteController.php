@@ -54,26 +54,6 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionIndex()
-    {
-        return $this->render('/pages/index');
-    }
-
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionCompany()
-    {
-        return $this->render('/pages/company');
-    }
-
-    /**
      * Displays contact page.
      *
      * @return Response|string

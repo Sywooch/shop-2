@@ -1,6 +1,5 @@
 <?php
-
-/* @var $this yii\web\View */
+use app\widgets\StaticContent;
 
 $this->title = 'Асгард';
 ?>
@@ -106,4 +105,8 @@ $this->title = 'Асгард';
         </li>
         </ul>
     </main>
+</div>
+
+<div class="static-content">
+	<?= StaticContent::widget(['model' => $model]) ?>
 </div>

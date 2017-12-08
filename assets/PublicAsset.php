@@ -13,8 +13,8 @@ class PublicAsset extends AssetBundle
         'dist/assets/styles/app.min.css',
     ];
     public $js = [
-        'dist/assets/scripts/app.min.js',
         'dist/assets/scripts/vue.js',
+        'dist/assets/scripts/app.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

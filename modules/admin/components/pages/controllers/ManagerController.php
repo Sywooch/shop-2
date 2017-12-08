@@ -3,8 +3,8 @@
 namespace app\modules\admin\components\pages\controllers;
 
 use Yii;
-use app\modules\admin\components\pages\models\Page;
-use app\modules\admin\components\pages\models\PageSearch;
+use app\models\Page;
+use app\models\PageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

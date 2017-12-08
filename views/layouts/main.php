@@ -193,7 +193,11 @@ PublicAsset::register($this);
 					</li>
 				</ul>
 			</aside>
-			<main class="pages-content" style="display: block;"><?= $content ?></main>
+			<main class="pages-content" style="display: block;">
+
+				<?= $content ?>
+
+			</main>
 		</div>
     </div>
 

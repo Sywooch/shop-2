@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\admin\components\pages\models;
+namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\admin\components\pages\models\Page;
+use app\models\Page;
 
 /**
  * PageSearch represents the model behind the search form about `bupy7\pages\models\Page`.

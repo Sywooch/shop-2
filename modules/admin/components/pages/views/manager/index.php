@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use app\modules\admin\components\pages\Module;
-use app\modules\admin\components\pages\models\Page;
+use app\models\Page;
 
 /* @var $this yii\web\View */
 /* @var $searchModel bupy7\pages\models\PageSearch */
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
     'filterModel' => $searchModel,
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
-        'id',
+//        'id',
         'title',
         'alias',
         'created_at:datetime',

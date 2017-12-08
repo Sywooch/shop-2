@@ -67,6 +67,9 @@ class AuthController extends Controller
 
     public function actionSignup()
     {
+        if (!Yii::$app->user->isGuest) {
+            return $this->redirect(['/']);
+        }
         $model = new SignupForm();
         if (Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post());
@@ -76,17 +79,5 @@ class AuthController extends Controller
         }
 
         return $this->render('/auth/signup', ['model' => $model]);
-    }
-
-    public function actionTest()
-    {
-//        Yii::$app->user->logout();
-
-        if (Yii::$app->user->isGuest) {
-            echo 'Пользователь гость';
-        } else {
-            echo 'Пользователь Авторизован';
-        }
-
     }
 }

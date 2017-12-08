@@ -5,7 +5,7 @@ namespace app\modules\admin\components\menu;
 use yii\web\AssetBundle as MenuAdminAsset;
 
 class MenuAsset extends MenuAdminAsset {
-    public $sourcePath = '@app/modules/admin/components/menu/assets';
+    public $sourcePath = '@vendor/pceuropa/yii2-menu/assets';
     public $baseUrl = '@web';
     public $js = [
         'js/Sortable.min.js',

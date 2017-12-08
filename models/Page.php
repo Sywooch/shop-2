@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\admin\components\pages\models;
+namespace app\models;
 
 use Yii;
 use app\modules\admin\components\pages\Module;
@@ -66,7 +66,7 @@ class Page extends ActiveRecord
      */
     public static function tableName()
     {
-        return Yii::$app->getModule('admin/pages')->tableName;
+        return $tableName = 'page';
     }
 
     /**

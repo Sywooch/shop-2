@@ -32,7 +32,7 @@ class m150429_155009_create_page_table extends Migration
             'title_browser'=>$this->string()->defaultValue(null),
             'meta_keywords' => $this->string(),
             'meta_description' => $this->string(),
-            'template'=>$this->string(),
+            'template'=>$this->string()->defaultValue( 'static'),
             'created_at' => $this->dateTime(),
             'updated_at' => $this->dateTime(),
         ], $tableOptions);

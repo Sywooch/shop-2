@@ -63,12 +63,11 @@ echo $form->field($model, 'meta_keywords')->textInput(['maxlength' => 200]);
 echo $form->field($model, 'meta_description')->textInput(['maxlength' => 160]);
 
 echo $form->field($model, 'template')->dropdownList([
-    'static' => 'Статичная страница',
-    'products' => 'Товары',
-    'services' => 'Услуги',
-    'delivery' => 'Доставка',
-    'contacts' => 'Контакты',
-    'index' => 'Главная',
+	'static' => 'Статичная страница',
+	'products' => 'Товары',
+	'services' => 'Услуги',
+	'delivery' => 'Доставка',
+	'contacts' => 'Контакты',
 ])->label('Шаблон');
 ?>
 
