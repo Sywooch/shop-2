@@ -32,15 +32,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Страницы', 'icon' => 'file-text', 'url' => ['/admin/pages/manager']],
-                    [
-                        'label' => 'Категории',
-                        'icon' => 'share',
-                        'url' => '/admin',
-                        'items' => [
-                            ['label' => 'Товары', 'icon' => 'shopping-cart', 'url' => ['/admin'],],
-                            ['label' => 'Услуги', 'icon' => 'wrench', 'url' => ['/admin'],],
-                        ],
-                    ],
+                    ['label' => 'Категории', 'icon' => 'sitemap', 'url' => ['/admin/category']],
                     ['label' => 'Товары', 'icon' => 'shopping-cart', 'url' => ['/admin']],
 					['label' => 'Услуги', 'icon' => 'wrench', 'url' => ['/admin']],
 					['label' => 'Прайс', 'icon' => 'file-text-o', 'url' => ['/admin']],

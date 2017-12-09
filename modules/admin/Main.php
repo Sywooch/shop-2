@@ -66,7 +66,7 @@ class Main extends \yii\base\Module
                     'uploadFile' => true,
                     'addImage' => true,
                     'addFile' => true,
-                ]
+                ],
             ];
         }
     }

@@ -12,6 +12,8 @@ use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 use app\assets\PublicAsset;
 use pceuropa\menu\Menu;
+use kartik\tree\TreeViewInput;
+use app\models\Category;
 
 PublicAsset::register($this);
 ?>
@@ -85,113 +87,131 @@ PublicAsset::register($this);
       <?= Alert::widget() ?>
 		<div class="pages-wrpaper">
 			<aside class="pages-sidebar">
-				<ul class="sidebar">
-					<li class="sidebar__item">
-						<a href="#">Название категории товаров</a>
-						<span class="show-sidebar-list"></span>
-						<ul class="products">
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-						</ul>
-					</li>
-					<li class="sidebar__item">
-						<a href="#">Название категории товаров</a>
-						<span class="show-sidebar-list"></span>
-						<ul class="products">
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-						</ul>
-					</li>
-					<li class="sidebar__item">
-						<a href="#">Название категории товаров</a>
-						<span class="show-sidebar-list"></span>
-						<ul class="products">
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-						</ul>
-					</li>
-					<li class="sidebar__item">
-						<a href="#">Название категории товаров</a>
-						<span class="show-sidebar-list"></span>
-						<ul class="products">
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-						</ul>
-					</li>
-					<li class="sidebar__item">
-						<a href="#">Название категории товаров</a>
-						<span class="show-sidebar-list"></span>
-						<ul class="products">
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-							<li class="products__item">
-								<a href="#">Название товара</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
+<!--				<ul class="sidebar">-->
+<!--					<li class="sidebar__item">-->
+<!--						<a href="#">Название категории товаров</a>-->
+<!--						<span class="show-sidebar-list"></span>-->
+<!--						<ul class="products">-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--						</ul>-->
+<!--					</li>-->
+<!--					<li class="sidebar__item">-->
+<!--						<a href="#">Название категории товаров</a>-->
+<!--						<span class="show-sidebar-list"></span>-->
+<!--						<ul class="products">-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--						</ul>-->
+<!--					</li>-->
+<!--					<li class="sidebar__item">-->
+<!--						<a href="#">Название категории товаров</a>-->
+<!--						<span class="show-sidebar-list"></span>-->
+<!--						<ul class="products">-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--						</ul>-->
+<!--					</li>-->
+<!--					<li class="sidebar__item">-->
+<!--						<a href="#">Название категории товаров</a>-->
+<!--						<span class="show-sidebar-list"></span>-->
+<!--						<ul class="products">-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--						</ul>-->
+<!--					</li>-->
+<!--					<li class="sidebar__item">-->
+<!--						<a href="#">Название категории товаров</a>-->
+<!--						<span class="show-sidebar-list"></span>-->
+<!--						<ul class="products">-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--							<li class="products__item">-->
+<!--								<a href="#">Название товара</a>-->
+<!--							</li>-->
+<!--						</ul>-->
+<!--					</li>-->
+<!--				</ul>-->
+
+                <?php
+                echo TreeViewInput::widget([
+                    // single query fetch to render the tree
+                    // use the Product model you have in the previous step
+                    'query' => Category::find()->addOrderBy('root, lft'),
+                    'headingOptions'=>['label'=>''],
+                    'name' => 'kv-product', // input name
+//                    'value' => '1,2,3',     // values selected (comma separated for multiple select)
+                    'asDropdown' => false,   // will render the tree input widget as a dropdown.
+                    'multiple' => false,     // set to false if you do not need multiple selection
+                    'fontAwesome' => true,  // render font awesome icons
+                    'rootOptions' => [
+                        'label'=>'<i class="fa fa-tree"></i>',  // custom root label
+                        'class'=>'text-success'
+                    ],
+                    'options'=>['disabled' => true],
+                ]);?>
 			</aside>
 			<main class="pages-content" style="display: block;">
 

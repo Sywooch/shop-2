@@ -65,6 +65,10 @@ $config = [
         'admin' => [
             'class' => 'app\modules\admin\Main',
         ],
+        'treemanager' =>  [
+            'class' => '\kartik\tree\Module',
+            // other module settings, refer detailed documentation
+        ]
     ],
     'params' => $params,
 ];

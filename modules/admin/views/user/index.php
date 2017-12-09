@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UserSearch */
@@ -67,12 +68,30 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'created_at',
                 'format' =>  ['date', 'HH:mm dd.MM.YYYY'],
-                'options' => ['width' => '180']
+                'options' => ['width' => '200'],
+                'filter' => DatePicker::widget([
+                    'name' => 'dp_1',
+                    'type' => DatePicker::TYPE_INPUT,
+                    'value' => '',
+                    'pluginOptions' => [
+                        'autoclose'=>true,
+                        'format' => 'dd-M-yyyy'
+                    ]
+                ])
             ],
             [
                 'attribute' => 'updated_at',
                 'format' =>  ['date', 'HH:mm dd.MM.YYYY'],
-                'options' => ['width' => '180']
+                'options' => ['width' => '200'],
+                'filter' => DatePicker::widget([
+                    'name' => 'dp_1',
+                    'type' => DatePicker::TYPE_INPUT,
+                    'value' => '',
+                    'pluginOptions' => [
+                        'autoclose'=>true,
+                        'format' => 'dd-M-yyyy'
+                    ]
+                ])
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
