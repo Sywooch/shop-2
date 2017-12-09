@@ -9,11 +9,11 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use yii\helpers\Url;
 use app\assets\PublicAsset;
 use pceuropa\menu\Menu;
 use kartik\tree\TreeViewInput;
 use app\models\Category;
+
 
 PublicAsset::register($this);
 ?>
@@ -197,20 +197,15 @@ PublicAsset::register($this);
 
                 <?php
                 echo TreeViewInput::widget([
-                    // single query fetch to render the tree
-                    // use the Product model you have in the previous step
-                    'query' => Category::find()->addOrderBy('root, lft'),
-                    'headingOptions'=>['label'=>''],
-                    'name' => 'kv-product', // input name
-//                    'value' => '1,2,3',     // values selected (comma separated for multiple select)
-                    'asDropdown' => false,   // will render the tree input widget as a dropdown.
-                    'multiple' => false,     // set to false if you do not need multiple selection
-                    'fontAwesome' => true,  // render font awesome icons
-                    'rootOptions' => [
-                        'label'=>'<i class="fa fa-tree"></i>',  // custom root label
-                        'class'=>'text-success'
-                    ],
-                    'options'=>['disabled' => true],
+					'name' => 'kvTreeInput',
+					'value' => 'true', // preselected values
+					'query' => Category::find()->addOrderBy('root, lft'),
+					'headingOptions' => ['label' => 'Categories'],
+					'rootOptions' => ['label'=>'<i class="fa fa-tree text-success"></i>'],
+					'fontAwesome' => true,
+					'asDropdown' => false,
+					'multiple' => true,
+					'options' => ['disabled' => false],
                 ]);?>
 			</aside>
 			<main class="pages-content" style="display: block;">

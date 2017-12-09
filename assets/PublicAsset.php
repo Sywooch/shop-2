@@ -17,7 +17,9 @@ class PublicAsset extends AssetBundle
         'dist/assets/scripts/app.min.js',
     ];
     public $depends = [
+        'rmrevin\yii\fontawesome\AssetBundle',
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
     ];
 }
