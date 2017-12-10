@@ -67,29 +67,33 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'created_at',
-                'format' =>  ['date', 'HH:mm dd.MM.YYYY'],
+                'format' =>  ['datetime'],
                 'options' => ['width' => '200'],
                 'filter' => DatePicker::widget([
                     'name' => 'dp_1',
                     'type' => DatePicker::TYPE_INPUT,
+					'separator' => '-',
                     'value' => '',
                     'pluginOptions' => [
+						'todayHighlight' => true,
                         'autoclose'=>true,
-                        'format' => 'dd-M-yyyy'
+                        'format' => 'yyyy-mm-dd'
                     ]
                 ])
             ],
             [
                 'attribute' => 'updated_at',
-                'format' =>  ['date', 'HH:mm dd.MM.YYYY'],
+                'format' =>  ['datetime'],
                 'options' => ['width' => '200'],
                 'filter' => DatePicker::widget([
                     'name' => 'dp_1',
                     'type' => DatePicker::TYPE_INPUT,
+                    'separator' => '-',
                     'value' => '',
                     'pluginOptions' => [
+                        'todayHighlight' => true,
                         'autoclose'=>true,
-                        'format' => 'dd-M-yyyy'
+                        'format' => 'yyyy-mm-dd'
                     ]
                 ])
             ],
