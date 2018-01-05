@@ -22,7 +22,8 @@
         "pceuropa/yii2-menu": "dev-master",
         "bupy7/yii2-pages": "*",
         "kartik-v/yii2-tree-manager": "@dev",
-        "kartik-v/yii2-widget-datepicker": "@dev"
+        "kartik-v/yii2-widget-datepicker": "@dev",
+        "2amigos/yii2-tinymce-widget": "~1.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

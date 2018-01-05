@@ -2,9 +2,28 @@
 namespace app\models;
 
 use Yii;
+use kartik\tree\models\Tree;
+use yii\behaviors\SluggableBehavior;
+use yii\helpers\ArrayHelper;
 
-class Category extends \kartik\tree\models\Tree
+class Category extends Tree
 {
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return ArrayHelper::merge(parent::behaviors(), [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'name',
+                'slugAttribute' => 'alias',
+                'immutable' => true,
+            ],
+        ]);
+    }
+
     /**
      * @inheritdoc
      */
@@ -24,5 +43,17 @@ class Category extends \kartik\tree\models\Tree
 //            return true;
 //        }
         return parent::isDisabled();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        $rules = parent::rules();
+        $rules[] = ['alias', 'safe'];
+        $rules[] = ['alias', 'unique'];
+        $rules[] = ['alias', 'string', 'max' => 255];
+        return $rules;
     }
 }

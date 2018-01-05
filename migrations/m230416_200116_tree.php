@@ -35,6 +35,7 @@ class m230416_200116_tree extends Migration
             'rgt' => $this->integer()->notNull(),
             'lvl' => $this->smallInteger(5)->notNull(),
             'name' => $this->string(60)->notNull(),
+            'alias'=>$this->string()->notNull()->unique(),
             'icon' => $this->string(255),
             'icon_type' => $this->smallInteger(1)->notNull()->defaultValue(1),
             'active' => $this->boolean()->notNull()->defaultValue(true),

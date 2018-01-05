@@ -8,6 +8,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
+    'name' => 'Магазин',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -50,14 +51,26 @@ $config = [
             'enableStrictParsing' => false,
             'showScriptName' => false,
             'rules' => [
-                '' => 'pages/index',
+                '/' => 'pages/index',
+
                 'admin' => 'admin/',
                 '<action:(login|logout|signup)>'=>'auth/<action>',
-                '<page:[\w-]+>' => 'pages/index',
 
-//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-//                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-//                '<controller:\w+>/<action:\w+>' => '<controller>/<action>'
+                [
+                    'pattern' => '<page:[\w-]+>',
+                    'route'=>'pages/',
+                    'suffix' => '.html'
+                ],
+                [
+                    'pattern' => 'product/<alias:[\w-]+>',
+                    'route'=>'product/view/',
+                    'suffix' => '.html'
+                ],
+                [
+                    'pattern' => 'catalog/<alias:[\w-]+>',
+                    'route'=>'catalog/view/',
+                    'suffix' => '.html'
+                ],
             ],
         ],
     ],

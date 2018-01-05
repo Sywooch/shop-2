@@ -6,7 +6,7 @@
         <div class="user-panel" style="position: inherit; margin: 0 0 20px 0;">
             <div class="pull-left image" style="margin-top: 3px;">
                 <img src="<?=(Yii::$app->request->hostInfo); ?>/uploads/<?=Yii::$app->user->identity->photo;?>"
-					  class="" alt="Аватар пользователя"/>
+                      class="" alt="Аватар пользователя"/>
             </div>
             <div class="pull-left info">
                 <p><?= Yii::$app->user->identity->name; ?></p>
@@ -33,13 +33,13 @@
                 'items' => [
                     ['label' => 'Страницы', 'icon' => 'file-text', 'url' => ['/admin/pages/manager']],
                     ['label' => 'Категории', 'icon' => 'sitemap', 'url' => ['/admin/category']],
-                    ['label' => 'Товары', 'icon' => 'shopping-cart', 'url' => ['/admin']],
-					['label' => 'Услуги', 'icon' => 'wrench', 'url' => ['/admin']],
-					['label' => 'Прайс', 'icon' => 'file-text-o', 'url' => ['/admin']],
-                    ['label' => 'Контакты', 'icon' => 'tty', 'url' => ['/admin']],
+                    ['label' => 'Товары', 'icon' => 'shopping-cart', 'url' => ['/admin/product']],
+                    // ['label' => 'Услуги', 'icon' => 'wrench', 'url' => ['/admin']],
+                    // ['label' => 'Прайс', 'icon' => 'file-text-o', 'url' => ['/admin']],
+                    // ['label' => 'Контакты', 'icon' => 'tty', 'url' => ['/admin']],
                     ['label' => 'Пользователи', 'icon' => 'user', 'url' => ['/admin/user/']],
                     ['label' => 'Меню', 'icon' => 'reorder', 'url' => ['/admin/menu']],
-                    ['label' => 'Настройки', 'icon' => 'gear', 'url' => ['/admin']],
+                    // ['label' => 'Настройки', 'icon' => 'gear', 'url' => ['/admin']],
 
 //                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
 //                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],

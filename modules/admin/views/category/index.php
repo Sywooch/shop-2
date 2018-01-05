@@ -2,6 +2,7 @@
 
 use kartik\tree\TreeView;
 use app\models\Category;
+use \kartik\tree\Module;
 
 $this->title = 'Категории';
 $this->params['breadcrumbs'][] = $this->title;
@@ -20,7 +21,10 @@ $this->params['breadcrumbs'][] = $this->title;
 			'softDelete' => true,       // defaults to true
 			'cacheSettings' => [
 				'enableCache' => false   // defaults to true
-			]
+			],
+			'nodeAddlViews' => [
+                Module::VIEW_PART_2 => '@app/modules/admin/views/category/_form'
+            ]
 		]);
 	?>
 </div>
