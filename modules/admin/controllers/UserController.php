@@ -35,6 +35,10 @@ class UserController extends Controller
 
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            return Yii::$app->controller->redirect(['/auth/login']);
+        }
+
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

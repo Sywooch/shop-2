@@ -32,6 +32,10 @@ class ProductController extends Controller
 
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            return Yii::$app->controller->redirect(['/auth/login']);
+        }
+
         $searchModel = new ProductSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -62,10 +66,7 @@ class ProductController extends Controller
         if (Yii::$app->request->isPost) {
 
             $post = Yii::$app->request->post();
-
             $productCosts = $post['Costs'];
-
-            // var_dump($post); die;
 
             if ($product->load($post) && $product->save()) {
 
@@ -97,11 +98,7 @@ class ProductController extends Controller
         if (Yii::$app->request->isPost) {
 
             $post = Yii::$app->request->post();
-
             $productCosts = $post['Costs'];
-
-            var_dump($post); die;
-
             $productId = $post['Product']['id'];
 
             if($file = UploadedFile::getInstance($imageUpload, 'image')){

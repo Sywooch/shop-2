@@ -9,11 +9,9 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use app\widgets\Sidebar;
 use app\assets\PublicAsset;
 use pceuropa\menu\Menu;
-use kartik\tree\TreeViewInput;
-use app\models\Category;
-
 
 PublicAsset::register($this);
 ?>
@@ -29,9 +27,7 @@ PublicAsset::register($this);
 
     <?= Html::csrfMetaTags() ?>
 
-	<title>
-      <?= Html::encode($this->title) ?>
-    </title>
+	<title><?= Html::encode($this->title) ?></title>
 
     <?php $this->head() ?>
 
@@ -39,7 +35,6 @@ PublicAsset::register($this);
       .navbar-toggle .icon-bar {
 		  background-color: #3c3c3c !important;
 	  }
-
 	  .navbar-fixed-top .navbar-collapse {
 		  max-height: 100% !important;
 	  }
@@ -50,168 +45,46 @@ PublicAsset::register($this);
   <?php $this->beginBody() ?>
 
   <div id="app">
-    <div class="container">
-      <?php
-      NavBar::begin([
-          'options' => [
-              'class' => 'navbar navbar-fixed-top',
-          ],
-      ]);
+	<div class="container">
+		<?php
+		NavBar::begin([
+		  'options' => [
+			  'class' => 'navbar navbar-fixed-top',
+		  ],
+		]);
 
-      echo Nav::widget(['options' => ['class' => 'navbar'],
-          'items' => Menu::NavbarLeft(1),  // argument is id of menu
-      ]);
-      NavBar::end();
-      ?>
-
-	  <header class="pages-header">
-		<a href="/">
-		  <div class="logo logo__pages-footer">ооо "кмопания"</div>
-		</a>
-		<div class="contacts">
-		  <span class="phone">+0 000-00-00</span>
-		  <a href="mailto:info@oormk.ru" class="mail">info@company.ru</a>
-		</div>
-	  </header>
-    </div>
+		echo Nav::widget(['options' => ['class' => 'navbar'],
+		  'items' => Menu::NavbarLeft(1),  // argument is id of menu
+		]);
+		NavBar::end();
+		?>
+		<header class="pages-header">
+			<a href="/"><div class="logo logo__pages-footer">ооо "кмопания"</div></a>
+			<div class="contacts">
+			  <span class="phone">+0 000-00-00</span>
+			  <a href="mailto:info@oormk.ru" class="mail">info@company.ru</a>
+			</div>
+		</header>
+	</div>
 
     <div class="container">
       <a href="/sale.html" class="banner-sale">Распродажа!</a>
     </div>
 
     <div class="container">
-      <?= Breadcrumbs::widget([
-          'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-      ]) ?>
+		<?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
 
-      <?= Alert::widget() ?>
+        <?= Alert::widget() ?>
+
 		<div class="pages-wrpaper">
 			<aside class="pages-sidebar">
-<!--				<ul class="sidebar">-->
-<!--					<li class="sidebar__item">-->
-<!--						<a href="#">Название категории товаров</a>-->
-<!--						<span class="show-sidebar-list"></span>-->
-<!--						<ul class="products">-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--						</ul>-->
-<!--					</li>-->
-<!--					<li class="sidebar__item">-->
-<!--						<a href="#">Название категории товаров</a>-->
-<!--						<span class="show-sidebar-list"></span>-->
-<!--						<ul class="products">-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--						</ul>-->
-<!--					</li>-->
-<!--					<li class="sidebar__item">-->
-<!--						<a href="#">Название категории товаров</a>-->
-<!--						<span class="show-sidebar-list"></span>-->
-<!--						<ul class="products">-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--						</ul>-->
-<!--					</li>-->
-<!--					<li class="sidebar__item">-->
-<!--						<a href="#">Название категории товаров</a>-->
-<!--						<span class="show-sidebar-list"></span>-->
-<!--						<ul class="products">-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--						</ul>-->
-<!--					</li>-->
-<!--					<li class="sidebar__item">-->
-<!--						<a href="#">Название категории товаров</a>-->
-<!--						<span class="show-sidebar-list"></span>-->
-<!--						<ul class="products">-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--							<li class="products__item">-->
-<!--								<a href="#">Название товара</a>-->
-<!--							</li>-->
-<!--						</ul>-->
-<!--					</li>-->
-<!--				</ul>-->
-
-                <?php
-                echo TreeViewInput::widget([
-					'name' => 'kvTreeInput',
-					'value' => 'true', // preselected values
-					'query' => Category::find()->addOrderBy('root, lft'),
-					'headingOptions' => ['label' => 'Categories'],
-					'rootOptions' => ['label'=>'<i class="fa fa-tree text-success"></i>'],
-					'fontAwesome' => true,
-					'asDropdown' => false,
-					'multiple' => true,
-					'options' => ['disabled' => false],
-                ]);?>
+				<?= Sidebar::widget() ?>
 			</aside>
+
 			<main class="pages-content" style="display: block;">
-
 				<?= $content ?>
-
 			</main>
 		</div>
     </div>

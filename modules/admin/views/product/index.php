@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
                 'label' => 'Категория',
                 'value' => function($data) {
-                    if ($data->category->name) {
+                    if (isset($data->category->name)) {
                         return Html::tag('p', Html::encode($data->category->name));
                     }
                 },
