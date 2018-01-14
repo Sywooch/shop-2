@@ -27,17 +27,17 @@ PublicAsset::register($this);
 
     <?= Html::csrfMetaTags() ?>
 
-	<title><?= Html::encode($this->title) ?></title>
+  <title><?= Html::encode($this->title) ?></title>
 
     <?php $this->head() ?>
 
-	<style>
+  <style>
       .navbar-toggle .icon-bar {
-		  background-color: #3c3c3c !important;
-	  }
-	  .navbar-fixed-top .navbar-collapse {
-		  max-height: 100% !important;
-	  }
+      background-color: #3c3c3c !important;
+    }
+    .navbar-fixed-top .navbar-collapse {
+      max-height: 100% !important;
+    }
     </style>
 </head>
 
@@ -45,57 +45,57 @@ PublicAsset::register($this);
   <?php $this->beginBody() ?>
 
   <div id="app">
-	<div class="container">
-		<?php
-		NavBar::begin([
-		  'options' => [
-			  'class' => 'navbar navbar-fixed-top',
-		  ],
-		]);
+  <div class="container">
+    <?php
+    NavBar::begin([
+      'options' => [
+        'class' => 'navbar navbar-fixed-top',
+      ],
+    ]);
 
-		echo Nav::widget(['options' => ['class' => 'navbar'],
-		  'items' => Menu::NavbarLeft(1),  // argument is id of menu
-		]);
-		NavBar::end();
-		?>
-		<header class="pages-header">
-			<a href="/"><div class="logo logo__pages-footer">ооо "кмопания"</div></a>
-			<div class="contacts">
-			  <span class="phone">+0 000-00-00</span>
-			  <a href="mailto:info@oormk.ru" class="mail">info@company.ru</a>
-			</div>
-		</header>
-	</div>
+    echo Nav::widget(['options' => ['class' => 'navbar'],
+      'items' => Menu::NavbarLeft(1),  // argument is id of menu
+    ]);
+    NavBar::end();
+    ?>
+    <header class="pages-header">
+      <a href="/"><div class="logo logo__pages-footer">ООО "Асгард М"</div></a>
+      <div class="contacts">
+        <span class="phone">8 (812) 339-14-88</span>
+        <a href="mailto:info@oormk.ru" class="mail">info@asgardmetall.ru</a>
+      </div>
+    </header>
+  </div>
 
     <div class="container">
-      <a href="/sale.html" class="banner-sale">Распродажа!</a>
+      <a href="dostavka.html" class="banner-sale">Доставка!</a>
     </div>
 
     <div class="container">
-		<?= Breadcrumbs::widget([
+    <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
 
         <?= Alert::widget() ?>
 
-		<div class="pages-wrpaper">
-			<aside class="pages-sidebar">
-				<?= Sidebar::widget() ?>
-			</aside>
+    <div class="pages-wrpaper">
+      <aside class="pages-sidebar">
+        <?= Sidebar::widget() ?>
+      </aside>
 
-			<main class="pages-content" style="display: block;">
-				<?= $content ?>
-			</main>
-		</div>
+      <main class="pages-content" style="display: block;">
+        <?= $content ?>
+      </main>
+    </div>
     </div>
 
     <footer class="pages-footer">
-      <div class="container container__pages-footer">
+      <div class="pages-footer__container">
         <div>
           <a href="/">
-            <div class="logo">кмопания</div>
+            <div class="logo">ООО "Асгард М"</div>
           </a>
-          <p>© 2007–2017 ООО «кмопания»</p>
+          <p>© 2007–2017 ООО "Асгард М"»</p>
         </div>
         <div>
           <ul class="pages-footer__list">
@@ -103,20 +103,16 @@ PublicAsset::register($this);
               <span class="icon-price"></span>
               <a href="/price.html">Прайс-лист</a>
             </li>
-            <li>
-              <span class="icon-mang"></span>
-              <a href="">Кабинет менеджера</a>
-            </li>
           </ul>
           <div class="pages-footer__info">
-            <p>&copy; My Company
+            <p>&copy; ООО "Асгард М"
                 <?= date('Y') ?>
             </p>
             <p class="adr">
               <span class="street-address">000000, г. Москва, адрес</span>
             </p>
-            <p class="tel">+7 495 999-18-19</p>
-            <a href="mailto:info@oormk.ru" class="email">info@company.ru</a>
+            <p class="tel">8 (812) 339-14-88</p>
+            <a href="mailto:info@oormk.ru" class="email">info@asgardmetall.ru</a>
           </div>
         </div>
         <div>

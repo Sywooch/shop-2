@@ -1,46 +1,47 @@
 .logo
-	display block
-	max-width 455px
-	background-color #ddd
-	// background-image url('https:/oormk.ru/images/logo.png?v=1')
-	background-repeat no-repeat
+  display block
+  max-width 455px
+  background-color #fff
+  background-image url('../images/logo.png')
+  background-repeat no-repeat
+  background-size contain
 
 .pages-header
-	padding 45px 0
+  padding 45px 0
 
-	&::after
-		display table
-		clear both
-		content ''
+  &::after
+    display table
+    clear both
+    content ''
 
-	.contacts
-		padding-top 10px
-		float right
-		text-align right
-		color #171717
+  .contacts
+    padding-top 10px
+    float right
+    text-align right
+    color #171717
 
-	.phone
-		display block
-		font 30px / 34px 'Bender', sans-serif
+  .phone
+    display block
+    font 30px / 34px 'Bender', sans-serif
 
-	.mail
-		display block
-		font .9rem 'Bender', sans-serif
+  .mail
+    display block
+    font .9rem 'Bender', sans-serif
 
 .logo__pages-footer
-	position relative
-	z-index 100
-	float left
-	width 455px
-	height 87px
-	text-indent -9999px
+  position relative
+  z-index 100
+  float left
+  width 455px
+  height 87px
+  text-indent -9999px
 
 @media screen and (max-width: 768px)
-	.logo__pages-footer, .pages-header .contacts
-		margin auto
-		float none
-		width 70%
+  .logo__pages-footer, .pages-header .contacts
+    margin auto
+    float none
+    width 70%
 
-	.pages-header
-		.phone
-			font-size 1.4rem
+  .pages-header
+    .phone
+      font-size 1.4rem
