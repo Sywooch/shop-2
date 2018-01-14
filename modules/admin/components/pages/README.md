@@ -16,7 +16,7 @@ php composer.phar require --prefer-dist bupy7/yii2-pages "*"
 ------------
 
 ! После установки yii2-pages и Imperavi, необходимо в файле "Asset.php", 
-расположеному в папек "vendor/vova07/impravi", на 41 строке добавить этот код: 	
+расположеному в папек "vendor/vova07/impravi/src", на 41 строке добавить этот код: 	
 
 ```
 public $js = [

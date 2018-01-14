@@ -14,8 +14,13 @@ class Sidebar extends \yii\bootstrap\Widget
 
     public function run()
     {
-        $rootCategories = (Category::find()->andWhere(['alias' => 'tovary'])->one())->root;
-        $sidebarItems = Category::find()->where(['root' => $rootCategories, 'lvl' => '1'])->addOrderBy('root, lft')->all();
+        $rootCategories = 
+            isset((Category::find()->andWhere(['alias' => 'tovary'])->one())->root) ? 
+            (Category::find()->andWhere(['alias' => 'tovary'])->one())->root : [];
+
+        $sidebarItems = 
+            Category::find()->where(['root' => $rootCategories, 'lvl' => '1'])->addOrderBy('root, lft')->all();
+
         $level = 1;
 
         echo '<ul class="sidebar">';
