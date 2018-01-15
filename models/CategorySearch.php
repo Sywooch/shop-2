@@ -18,7 +18,13 @@ class CategorySearch extends Category
     public function rules()
     {
         return [
-            [['id', 'root', 'lft', 'rgt', 'lvl', 'icon_type', 'active', 'selected', 'disabled', 'readonly', 'visible', 'collapsed', 'movable_u', 'movable_d', 'movable_l', 'movable_r', 'removable', 'removable_all'], 'integer'],
+            [[
+                'id', 'root', 'lft', 'rgt', 'lvl', 'icon_type', 
+                'active', 'selected', 'disabled', 'readonly', 
+                'visible', 'collapsed', 'movable_u', 'movable_d', 
+                'movable_l', 'movable_r', 'removable', 
+                'removable_all'
+             ],'integer'],
             [['name', 'alias', 'icon'], 'safe'],
         ];
     }

@@ -42,9 +42,9 @@ class PagesController extends Controller
     public function actionIndex($page = 'main')
     {
         $model = $this->findModel($page);
-        return $this->render($model->template, [
-            'model' => $model,
-        ]);
+        ($page == 'main') ? $template = 'index' : $template = $model->template;
+
+        return $this->render($template, ['model' => $model,]);
     }
 
     protected function findModel($alias)
