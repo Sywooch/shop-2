@@ -1,0 +1,24 @@
+mixin delivery-banner()
+  .delivery-banner
+    ul.delivery-banner__list
+      li
+        img(src='https://oormk.ru/images/dost-tr.png', alt='Доставка до 7 тонн, 6 метров')
+        p
+          a(href='/delivery.html#small') До 7 тонн, 6 метров
+          br
+          | 5000 руб.
+      li
+        img(src='https://oormk.ru/images/dost-big-tr.png', alt=' Доставка до 40 тонн, 12 метров')
+        p
+          a(href='/delivery.html#big') До 20 тонн, 12 метров
+          br
+          | 10000 руб.
+      li
+        img(src='https://oormk.ru/images/dost-map.png', alt='Доставка по Москве и Московской области')
+        p
+          a(href='/delivery.html') Доставка по Москве и Московской области
+    .delivery-banner__pay
+      span
+        | Возможна
+        a(href='/oplata.html#place') оплата на месте
+        |  разгрузки!

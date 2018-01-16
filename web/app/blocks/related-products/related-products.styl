@@ -1,0 +1,60 @@
+.related-products
+  margin 0 -15px
+  padding 0
+  clear both
+  list-style none
+  font-size 0
+  letter-spacing -1px
+
+.related-products__item
+  position relative
+  margin 0 15px 35px
+  padding 0
+  display inline-block
+  box-sizing border-box
+  width 262px
+  font inherit
+  vertical-align top
+  background none
+  border 5px solid #fdcf08
+
+  &:before
+    position absolute
+    z-index 10
+    top 50%
+    left -5px
+    margin-top -18px
+    width 17px
+    height 30px
+    content ''
+    background url('https://oormk.ru/images/suppport-left.png') no-repeat
+
+  &:after
+    position absolute
+    z-index 10
+    top 50%
+    right -5px
+    margin-top -18px
+    width 17px
+    height 30px
+    content ''
+    background url('https://oormk.ru/images/suppport-right.png') no-repeat
+
+  a
+    text-decoration none
+    color #000
+
+  &:hover a
+    text-decoration underline
+
+  span
+    padding 5px 0 3px
+    display block
+    font-size .8rem
+    text-align center
+    color #000
+    background #fdcf08
+
+@media screen and (max-width: 650px)
+  .related-products
+    text-align center

@@ -1,0 +1,12 @@
+extends /blocks/layout-default/layout-default
+include /blocks/product/product
+
+block head
+  - var pageTitle = 'product title | product page';
+
+block sidebar
+  aside.pages-sidebar
+    +sidebar
+
+block content
+  +product

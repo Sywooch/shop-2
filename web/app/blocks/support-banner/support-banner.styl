@@ -1,0 +1,77 @@
+.support-banner
+  position relative
+  margin 0 0 15px
+  margin-bottom 95px
+  padding 20px 0
+  clear both
+  width 100%
+  border 5px solid #fdcf08
+
+  .text
+    float left
+    overflow hidden
+    text-align right
+
+    strong
+      display block
+      float right
+      width 450px
+      font 400 20px / 28px 'PT sans', 'pt_sansrubl', sans-serif
+      color #333
+
+  .phone
+    float right
+    width 350px
+
+    strong
+      margin-bottom 3px
+      display block
+      font 400 36px / 36px 'Bender', sans-serif
+      color #000
+
+    a
+      margin-left 5px
+      text-decoration none
+      border-bottom 1px dashed #087ad5
+
+      &:hover
+        border-bottom 1px dashed transparent
+
+  &:before
+    position absolute
+    z-index 10
+    top 50%
+    left -5px
+    margin-top -15px
+    width 17px
+    height 30px
+    content ''
+    background url('https://oormk.ru/images/suppport-left.png') no-repeat
+
+  &:after
+    position absolute
+    z-index 10
+    top 50%
+    right -5px
+    margin-top -15px
+    clear both
+    width 17px
+    height 30px
+    content ''
+    background url('https://oormk.ru/images/suppport-right.png')
+
+@media screen and (max-width: 650px)
+  .support-banner
+    text-align center
+
+    .text
+      float none
+      overflow auto
+      width 100%
+      text-align center
+
+    .phone
+      margin 15px auto
+      float none
+      width 100%
+      text-align center

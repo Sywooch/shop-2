@@ -1,0 +1,114 @@
+.product-section
+  display flex
+  flex-wrap wrap
+
+.product-desc__wrapper
+  width 70%
+
+.product__title
+  margin 5px 0 25px
+  width 100%
+  font-size 2.4rem
+  text-align left
+  color #000
+
+.product__image
+  width 100%
+  max-width 555px
+
+.product-price__wrapper
+  width 30%
+
+.product-options__wrapper
+  margin-right 10%
+  width 40%
+
+.product__sale
+  width 50%
+
+  p
+    margin-bottom 10px
+    font-size .8rem
+
+.product__table
+  width 100%
+
+  table
+    margin 0 0 25px
+    width 100%
+    border-spacing 0
+    border-collapse collapse
+
+    th
+      padding 10px 5px
+      line-height 1.25
+      text-align center
+      border-bottom 2px solid #4b4a50
+
+    td
+      padding 10px 5px
+      font-size .85rem
+      line-height 1.25
+      border-bottom 1px solid #4b4a50
+
+    td:nth-child(2)
+      width 1.7%
+
+.product__desc
+  padding-right 35px
+  font-size .8em
+  line-height 1.35
+  color #4b4a50
+
+  p
+    margin 15px 0
+
+.button--price
+  width 100%
+
+.product__certificate
+  overflow hidden
+  width 265px
+  text-align left
+
+.product__certificate-image
+  margin 0 20px 20px 0
+  float left
+  width 119px
+
+.product__certificate-text
+  float left
+  width 120px
+  font-size .8rem
+  line-height 1.25
+  color #4b4a50
+
+.product__content
+  h2, h3
+    margin 15px 0
+    text-align left
+
+  ul
+    margin 0
+    padding 0 0 0 50px
+    clear both
+    list-style none
+
+    li
+      padding 0 0 22px 31px
+      font 400 14px / 18px 'PT sans', 'pt_sansrubl', sans-serif
+      background url('data:image/gif;base64,R0lGODlhDgADAIAAAP3PCAAAACH5BAAAAAAALAAAAAAOAAMAAAIFhI+py1oAOw==') 0 8px no-repeat
+
+@media screen and (max-width: 550px)
+  .product__content
+    width 100%
+
+  .product-price__wrapper
+    width 100%
+
+  .product-options__wrapper
+    margin-right 0
+    width 100%
+
+  .product__certificate
+    margin auto
