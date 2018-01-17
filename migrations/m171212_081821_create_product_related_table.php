@@ -20,7 +20,7 @@ class m171212_081821_create_product_related_table extends Migration
 
         $this->createTable('product_related', [
             'product_id' => $this->integer()->notNull(),
-            'product_related'=>$this->integer()->notNull(),
+            'product_related_id'=>$this->integer()->notNull(),
         ], $tableOptions);
     }
 

@@ -31,7 +31,7 @@ class MainCategories extends \yii\bootstrap\Widget
             <li class="categories__item">
                 <a href="<?= $category->alias ?>">
                     <img src="<?= ($category->image != '') ? '/uploads/'.$category->image : 'http://placehold.it/220x150/FFF' ?>" />
-                    <p><?= $category->title ?></p>
+                    <span><?= $category->title ?></span>
                 </a>
             </li>
 
@@ -45,11 +45,8 @@ class MainCategories extends \yii\bootstrap\Widget
                 <button class="special__control special__control-left"></button>
                 <button class="special__control special__control-right"></button>
             </li>
-
 <?php
-            endif;
-        endforeach;
-
+        endif;endforeach;
         echo '</ul>';
     }
 }

@@ -49,6 +49,7 @@ class Price extends \yii\db\ActiveRecord
 
     public function saveCost($costs, $productId)
     {
+
         price::deleteAll(['product_id' => $productId]);
 
         foreach ($costs as $cost) {

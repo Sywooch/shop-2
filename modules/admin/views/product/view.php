@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
         <?= Html::a('Добавить товар', ['create'], ['class' => 'btn btn-success']) ?>
+        <!-- <?= Html::a('Сопутствующий товары', [''], ['class' => 'btn btn-primary']) ?> -->
     </p>
 
     <?= DetailView::widget([
@@ -34,22 +35,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'rating',
                 'format'=>'text',
                 'value' =>
-					function($data){
-						switch ($data->rating) {
-							case 0:
-								return 'Нулевой';
-							case 1:
-								return '1 звезда';
-							case 2:
-								return '2 звезды';
-							case 3:
-								return '3 звезды';
-							case 4:
-								return '4 звезды';
-							case 5:
-								return '5 звезд';
-						}
-                	},
+                    function($data){
+                        switch ($data->rating) {
+                            case 0:
+                                return 'Нулевой';
+                            case 1:
+                                return '1 звезда';
+                            case 2:
+                                return '2 звезды';
+                            case 3:
+                                return '3 звезды';
+                            case 4:
+                                return '4 звезды';
+                            case 5:
+                                return '5 звезд';
+                        }
+                    },
             ],
             'annotation',
             [
@@ -59,10 +60,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::tag('p', Html::encode($data->category->name));
                 }
             ],
-			[
+            [
+                'attribute' => 'description',
+                'format' => 'raw',
+            ],
+            [
+                'attribute' => 'service',
+                'format' => 'raw',
+            ],
+            [
                 'attribute' => 'content',
                 'format' => 'raw',
-			],
+            ],
             'title_browser',
             'meta_keywords',
             'meta_description',
@@ -87,38 +96,72 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <br>
 
-	<div class="row">
-		<?php foreach ($costs as $key => $cost) :?>
-			<div class="col-sm-2">
-					<div class="form-group field-price-price required">
-						<label class="control-label" for="price-price">Цена</label>
-						<input type="number"
-							   id="price-price"
-							   class="form-control"
-							   name="Costs[<?=$key?>][price]"
-							   aria-required="true"
-							   value="<?=$cost['price']?>"
-							   title="Укажите цену без денежных знаков. Например, 2000. Цена будет отображаться в рублях."
-							   disabled="disabled">
+    <div class="row">
+        <?php foreach ($options as $key => $option) :?>
+                <div class="col-sm-4">
+                    <div class="form-group field-option-title required">
+                        <label class="control-label" for="option-title">Параметр</label>
+                        <input type="text"
+                               id="option-title"
+                               class="form-control"
+                               name="options[<?=$key?>][title]"
+                               aria-required="true"
+                               value="<?=$option['option_title']?>"
+                               title="Укажите название параметра" 
+                               disabled="disabled">
 
-						<div class="help-block"></div>
-					</div>
-				</div>
-			<div class="col-sm-2">
-					<label class="control-label" for="price-size">Объем</label>
-					<input type="text"
-						   id="price-size"
-						   class="form-control"
-						   name="Costs[<?=$key?>][size]"
-						   maxlength="255"
-						   value="<?=$cost['size']?>"
-						   title="Укажите обьем. Например, 2л или 0.5мл"
-						   disabled="disabled">
+                        <div class="help-block"></div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <label class="control-label" for="option-value">Значение</label>
+                    <input type="text"
+                           id="option-value"
+                           class="form-control"
+                           name="options[<?=$key?>][value]"
+                           maxlength="255"
+                           value="<?=$option['option_value']?>"
+                           title="Укажите значение параметра" 
+                           disabled="disabled">
 
-					<div class="help-block"></div>
-				</div>
+                    <div class="help-block"></div>
+                </div>
+        <?php endforeach;?>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <?php foreach ($costs as $key => $cost) :?>
+            <div class="col-sm-2">
+                <label class="control-label" for="price-size">Условие</label>
+                <input type="text"
+                        id="price-size"
+                        class="form-control"
+                        name="Costs[<?=$key?>][size]"
+                        maxlength="255"
+                        value="<?=$cost['size']?>"
+                        disabled="disabled">
+
+                <div class="help-block"></div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group field-price-price required">
+                    <label class="control-label" for="price-price">Цена</label>
+                    <input type="number"
+                            id="price-price"
+                            class="form-control"
+                            name="Costs[<?=$key?>][price]"
+                            aria-required="true"
+                            value="<?=$cost['price']?>"
+                            disabled="disabled">
+
+                    <div class="help-block"></div>
+                </div>
+            </div>
         <?php endforeach; ?>
-	</div>
+    </div>
 
 </div>

@@ -11,11 +11,10 @@ $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'i
 $this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 <div class="product-update">
-
     <?= $this->render('_form', [
         'model' => $model,
         'imageUpload' => $imageUpload,
-        'costs' => $costs
+        'costs' => $costs,
+        'options' => $options,
     ]) ?>
-
 </div>

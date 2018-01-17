@@ -19,7 +19,7 @@ class ProductSearch extends Product
     {
         return [
             [['id', 'rating', 'category_id', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'alias', 'annotation', 'image', 'content', 'title_browser', 'meta_keywords', 'meta_description'], 'safe'],
+            [['title', 'alias', 'annotation', 'image', 'description', 'service', 'content','title_browser', 'meta_keywords', 'meta_description'], 'safe'],
         ];
     }
 

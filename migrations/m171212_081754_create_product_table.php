@@ -26,6 +26,8 @@ class m171212_081754_create_product_table extends Migration
             'annotation'=>$this->string(),
             'image'=>$this->string()->defaultValue(null),
             'category_id'=>$this->integer()->defaultValue(0),
+            'description' => $this->text(),
+            'service' => $this->text(),
             'content' => $this->text(),
             'title_browser'=>$this->string()->defaultValue(null),
             'meta_keywords' => $this->string(),

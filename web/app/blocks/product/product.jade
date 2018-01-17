@@ -3,10 +3,10 @@ include /blocks/related-products/related-products
 include /blocks/support-banner/support-banner
 
 mixin product()
-  section.product-section
+  article.product
     h1.product__title Балка двутавровая 10 (12 м)
 
-    .product-desc__wrapper
+    section.product-desc__wrapper
       img.product__image(src="https://oormk.ru/image/cache/data/balka/balka-10-555x250.png" alt="Изображение товара")
 
       .product__desc
@@ -25,7 +25,7 @@ mixin product()
           | Сварной двутавр в несколько раз легче аналогичного горячекатаного, однако горячекатаный гораздо надежнее сварного.
           | Поэтому выбор того или иного профиля зависит от последующего применения двутавра.
 
-    .product-price__wrapper
+    section.product-price__wrapper
       .product__table
         table
           thead
@@ -48,7 +48,7 @@ mixin product()
 
     +delivery-banner
 
-    .product-options__wrapper
+    section.product-options__wrapper
       .product__table
         table
           thead
@@ -65,7 +65,7 @@ mixin product()
               td Длина
               td 6м
 
-    .product__sale
+    section.product__sale
       h4(style="font-size: 1.5rem; color: #000") Металлообработка
       br
       p Наша компания предлагает услуги в области металлообработки, различной сложности.
@@ -73,7 +73,7 @@ mixin product()
       p Создание высокоточных деталей с разными видами отверстий.
       p Резка пополам - 5% от стоимости.
 
-    .product__content
+    section.product__content
       h3 Предназначение арматуры А500С 6
       p
         | Основное предназначение данного вида проката — армирование железобетонных конструкций. Небольшое сечение и высокие показатели прочности сделали его универсальным материалом для упрочнения изделий при незначительном увеличении веса конструкции (вес 1 погонного метра арматуры А500С 6 мм — 0,222 кг). По этой причине представленный вид проката повсеместно применяется в следующих отраслях:

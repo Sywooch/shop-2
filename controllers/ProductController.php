@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Product;
 use app\models\Price;
+use app\models\ProductOptions;
 use app\models\Category;
 use yii\web\NotFoundHttpException;
 
@@ -24,6 +25,7 @@ class ProductController extends \yii\web\Controller
             return $this->render('view', [
                 'product' => $item['product'],
                 'costs' => $item['costs'],
+                'options' => $item['options'],
                 'category' => $item['category']
             ]);
         } else {
@@ -35,6 +37,7 @@ class ProductController extends \yii\web\Controller
     {
         if (($item['product']  = Product::find()->where(['alias' => $alias])->one()) !== null) {
             $item['costs'] = Price::find()->where(['product_id' => $item['product']['id']])->all();
+            $item['options'] = ProductOptions::find()->where(['product_id' => $item['product']['id']])->all();
             $item['category'] = Category::find()->where(['id' => $item['product']['category_id']])->one();
             return $item;
         } else {

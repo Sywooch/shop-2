@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\ImageUpload;
 use app\models\Price;
+use app\models\ProductOptions;
 use yii\web\UploadedFile;
 
 /**
@@ -48,10 +49,12 @@ class ProductController extends Controller
     public function actionView($id)
     {
         $price = new Price();
+        $productOptionsModel = new ProductOptions();
 
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'costs' => $price->getCost($id)
+            'costs' => $price->getCost($id),
+            'options' => $productOptionsModel->getOptions($id)
         ]);
     }
 
@@ -60,13 +63,16 @@ class ProductController extends Controller
         $imageUpload = new ImageUpload();
         $product = new Product();
         $price = new Price();
+        $productOptionsModel = new ProductOptions();
         $costs = [];
+        $options = [];
 
 
         if (Yii::$app->request->isPost) {
 
             $post = Yii::$app->request->post();
             $productCosts = $post['Costs'];
+            $productOptions = $post['options'];
 
             if ($product->load($post) && $product->save()) {
 
@@ -75,6 +81,7 @@ class ProductController extends Controller
                 }
 
                 $price->saveCost($productCosts, $product->id);
+                $productOptionsModel->saveOptions($productOptions, $product->id);
 
                 return $this->redirect(['view', 'id' => $product->id]);
             }
@@ -83,29 +90,35 @@ class ProductController extends Controller
         return $this->render('create', [
             'model' => $product,
             'imageUpload' => $imageUpload,
-            'costs' => $costs
+            'costs' => $costs,
+            'options' => $options
         ]);
     }
 
     public function actionUpdate($id)
     {
-
         $imageUpload = new ImageUpload();
         $product = $this->findModel($id);
         $price = new Price();
+        $productOptionsModel = new ProductOptions();
         $costs = $price->getCost($id);
+        $options = $productOptionsModel->getOptions($id);
 
         if (Yii::$app->request->isPost) {
 
             $post = Yii::$app->request->post();
             $productCosts = $post['Costs'];
+            $productOptions = $post['options'];
             $productId = $post['Product']['id'];
 
             if($file = UploadedFile::getInstance($imageUpload, 'image')){
                 $product->saveImage($imageUpload->uploadFile($file, $product->image));
             }
 
-            if ($product->load($post) && $product->save() && $price->saveCost($productCosts, $productId)) {
+            if ($product->load($post) 
+                && $product->save() 
+                && $price->saveCost($productCosts, $productId)
+                && $productOptionsModel->saveOptions($productOptions, $product->id)) {
                 return $this->redirect(['view', 'id' => $product->id]);
             }
         }
@@ -113,7 +126,8 @@ class ProductController extends Controller
         return $this->render('update', [
             'model' => $product,
             'imageUpload' => $imageUpload,
-            'costs' => $costs
+            'costs' => $costs,
+            'options' => $options
         ]);
     }
 

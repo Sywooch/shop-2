@@ -57,7 +57,7 @@ class Product extends \yii\db\ActiveRecord
         return [
             [['title'], 'required'],
             [['rating', 'category_id', 'created_at', 'updated_at'], 'integer'],
-            [['content'], 'string'],
+            [['description', 'service', 'content'], 'string'],
             [['title', 'alias', 'annotation', 'image', 'title_browser', 'meta_keywords', 'meta_description'], 'string', 'max' => 255],
             [['alias'], 'unique'],
         ];
@@ -76,6 +76,8 @@ class Product extends \yii\db\ActiveRecord
             'annotation' => 'Краткое описание',
             'image' => 'Изображение',
             'category_id' => 'Категория',
+            'description'=> 'Описание', 
+            'service'=> 'Услуга',
             'content' => 'Контент',
             'title_browser' => 'Заголовок в браузере',
             'meta_keywords' => 'Meta Keywords',
